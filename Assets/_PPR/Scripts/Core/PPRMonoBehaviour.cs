@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace PPR.Core
@@ -6,8 +7,8 @@ namespace PPR.Core
     {
         protected PPRManager Manager => PPRManager.Instance;
 
-        public void AddListener(PPREvent pprEvent) => Manager.EventManager.AddListener(pprEvent);
-        public void RemoveListener(PPREvent pprEvent) => Manager.EventManager.RemoveListener(pprEvent);
-        public void InvokeEvent(string pprEvent, object obj) => Manager.EventManager.InvokeEvent(pprEvent, obj);
+        public void AddListener(GameEvents eventName, Action<object> onEvent) => Manager.EventManager.AddListener(eventName, onEvent);
+        public void RemoveListener(GameEvents eventName, Action<object> onEvent) => Manager.EventManager.RemoveListener(eventName, onEvent);
+        public void InvokeEvent(GameEvents pprEvent, object obj) => Manager.EventManager.InvokeEvent(pprEvent, obj);
     }
 }

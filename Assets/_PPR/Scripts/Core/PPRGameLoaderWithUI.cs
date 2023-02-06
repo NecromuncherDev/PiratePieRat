@@ -1,12 +1,16 @@
 ﻿using UnityEngine;
-using System.Threading.Tasks;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
 
 namespace PPR.Core
 {
-    public class PPRGameLoader : PPRMonoBehaviour
+    public class PPRGameLoaderWithUI : PPRMonoBehaviour
     {
-        public void LoadScene(int sceneID) // Called by a button click in the scene, or any other system
+        [SerializeField] private GameObject loadingScrene;
+        [SerializeField] private Image loadingBarFill;
+
+        public void LoadScene(int sceneID)
         {
             new PPRManager();
             LoadSceneAsync(sceneID);
@@ -14,12 +18,16 @@ namespace PPR.Core
 
         private async void LoadSceneAsync(int sceneID)
         {
+            loadingScrene.gameObject.SetActive(true);
+            
             AsyncOperation operation = SceneManager.LoadSceneAsync(sceneID);
-
+            
             float progressValue;
             while (!operation.isDone)
             {
-                progressValue = operation.progress; // Needed for addition of loading bar
+                progressValue = operation.progress;
+                loadingBarFill.fillAmount = progressValue;
+
                 await Task.Yield();
             }
 
@@ -27,4 +35,3 @@ namespace PPR.Core
         }
     }
 }
-

@@ -1,44 +1,44 @@
+using System;
 using System.Collections.Generic;
 
 namespace PPR.Core
 {
     public class PPREventManager
     {
-        private Dictionary<string, List<PPREvent>> activeListeners = new();
+        private Dictionary<GameEvents, List<Action<object>>> activeListeners = new();
 
-        public void AddListener<T>(T pprEvent) where T : PPREvent
+        public void AddListener(GameEvents eventName, Action<object> onEvent)
         {
-            if (activeListeners.TryGetValue(pprEvent.eventName, out var listOfEvents))
+            if (activeListeners.TryGetValue(eventName, out var listOfEvents))
             {
-                listOfEvents.Add(pprEvent);
+                listOfEvents.Add(onEvent);
                 return;
             }
 
-            activeListeners.Add(pprEvent.eventName, new List<PPREvent> { pprEvent });
+            activeListeners.Add(eventName, new List<Action<object>>() { onEvent });
         }
 
-        public void RemoveListener<T>(T pprEvent) where T : PPREvent
+        public void RemoveListener(GameEvents eventName, Action<object> onEvent)
         {
-            if (activeListeners.TryGetValue(pprEvent.eventName, out var listOfEvents))
+            if (activeListeners.TryGetValue(eventName, out var listOfEvents))
             {
-                listOfEvents.Remove(pprEvent);
+                listOfEvents.Remove(onEvent);
 
                 if (listOfEvents.Count <= 0)
                 {
-                    activeListeners.Remove(pprEvent.eventName);
+                    activeListeners.Remove(eventName);
                     return;
                 }
             }
         }
 
-        public void InvokeEvent(string eventName, object obj)
+        public void InvokeEvent(GameEvents eventName, object obj)
         {
             if (activeListeners.TryGetValue(eventName, out var listOfEvents))
             {
-                //TODO: Switch to for loop
-                foreach (var pprEvent in listOfEvents)
+                foreach (var action in listOfEvents)
                 {
-                    pprEvent.eventAction.Invoke(obj);
+                    action.Invoke(obj);
                 }
             }
         }

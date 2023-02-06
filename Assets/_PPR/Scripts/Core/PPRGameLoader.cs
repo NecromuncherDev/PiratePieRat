@@ -1,6 +1,6 @@
 ﻿namespace PPR.Core
 {
-    public class PPRameLoader : PPRMonoBehaviour
+    public class PPRGameLoader : PPRMonoBehaviour
     {
         private void Start()
         {

@@ -4,7 +4,7 @@ namespace PPR.Core
 {
     public class PPREventManager
     {
-        Dictionary<string, List<PPREvent>> activeListeners = new();
+        private Dictionary<string, List<PPREvent>> activeListeners = new();
 
         public void AddListener<T>(T pprEvent) where T : PPREvent
         {

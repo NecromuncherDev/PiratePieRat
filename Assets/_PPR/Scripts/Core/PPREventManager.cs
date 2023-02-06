@@ -5,9 +5,9 @@ namespace PPR.Core
 {
     public class PPREventManager
     {
-        private Dictionary<GameEvents, List<Action<object>>> activeListeners = new();
+        private Dictionary<PPRGameEvents, List<Action<object>>> activeListeners = new();
 
-        public void AddListener(GameEvents eventName, Action<object> onEvent)
+        public void AddListener(PPRGameEvents eventName, Action<object> onEvent)
         {
             if (activeListeners.TryGetValue(eventName, out var listOfEvents))
             {
@@ -18,7 +18,7 @@ namespace PPR.Core
             activeListeners.Add(eventName, new List<Action<object>>() { onEvent });
         }
 
-        public void RemoveListener(GameEvents eventName, Action<object> onEvent)
+        public void RemoveListener(PPRGameEvents eventName, Action<object> onEvent)
         {
             if (activeListeners.TryGetValue(eventName, out var listOfEvents))
             {
@@ -32,7 +32,7 @@ namespace PPR.Core
             }
         }
 
-        public void InvokeEvent(GameEvents eventName, object obj)
+        public void InvokeEvent(PPRGameEvents eventName, object obj)
         {
             if (activeListeners.TryGetValue(eventName, out var listOfEvents))
             {

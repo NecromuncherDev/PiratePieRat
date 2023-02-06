@@ -11,18 +11,18 @@ namespace PPR.Test
         private void DelayStart()
         {
             new PPRManager();
-            InvokeEvent(GameEvents.game_start_event, null);
+            InvokeEvent(PPRGameEvents.game_start_event, null);
         }
 
         private void Start()
         {
 
-            AddListener(GameEvents.game_start_event, OnGameStart);
+            AddListener(PPRGameEvents.game_start_event, OnGameStart);
         }
 
         private void OnDestroy()
         {
-            RemoveListener(GameEvents.game_start_event, OnGameStart);
+            RemoveListener(PPRGameEvents.game_start_event, OnGameStart);
         }
 
         private void OnGameStart(object obj)
@@ -53,7 +53,7 @@ namespace PPR.Test
 
             isGameRunning = true;
 
-            PPRManager.Instance.EventManager.InvokeEvent(GameEvents.game_start_event, null);
+            PPRManager.Instance.EventManager.InvokeEvent(PPRGameEvents.game_start_event, null);
         }
     }
 }

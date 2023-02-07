@@ -12,7 +12,7 @@ namespace PPR.Core
 
         public void LoadScene(int sceneID)
         {
-            new PPRManager();
+            new PPRManager(); // Need to be independent 
             LoadSceneAsync(sceneID);
         }
 
@@ -27,11 +27,10 @@ namespace PPR.Core
             {
                 progressValue = operation.progress;
                 loadingBarFill.fillAmount = progressValue;
-
                 await Task.Yield();
             }
 
-            InvokeEvent(PPRGameEvents.game_start_event, null);
+            InvokeEvent(PPRCoreEvents.game_start_event, null);
         }
     }
 }

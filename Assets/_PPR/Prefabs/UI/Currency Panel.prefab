@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 4415432372184331504}
   - component: {fileID: 4415432372184331510}
   - component: {fileID: 4415432372184331511}
-  - component: {fileID: 5747366296541541895}
+  - component: {fileID: 8497236793019227983}
   m_Layer: 5
   m_Name: Currency Panel
   m_TagString: Untagged
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5747366296541541895
+--- !u!114 &8497236793019227983
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

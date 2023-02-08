@@ -8,7 +8,6 @@ namespace PPR.Test
         protected override async void OnGameStart(object obj)
         {
             await UpdateCurrencyEvents();
-            Destroy(gameObject);
         }
 
         private async Task UpdateCurrencyEvents()

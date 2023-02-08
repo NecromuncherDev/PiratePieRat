@@ -1,4 +1,5 @@
 ﻿using PPR.Core;
+using PPR.Game;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,7 +23,7 @@ namespace PPR.Test
             {
                 if (Input.GetKeyDown(keyMap.triggerKey))
                 {
-                    InvokeEvent(keyMap.eventToTriggerOnKey);
+                    InvokeEvent(keyMap.eventToTriggerOnKey, PPRGameManager.playerObjectID);
                 }
             }
         }

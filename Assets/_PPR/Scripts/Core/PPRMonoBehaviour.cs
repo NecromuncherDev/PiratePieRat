@@ -15,7 +15,6 @@ namespace PPR.Core
         protected virtual void Awake()
         {
             ObjectID = $"{gameObject.name.Replace(' ', '_')}-{UnityEngine.Random.Range(0, ushort.MaxValue)}";
-            print(ObjectID);
         }
     }
 }

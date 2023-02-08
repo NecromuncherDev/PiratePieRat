@@ -29,6 +29,7 @@ namespace PPR.Game
 
         private void ToggleMoving(bool moving)
         {
+            _moveDir = Random.insideUnitCircle.normalized;
             _moving = moving;
         }
 

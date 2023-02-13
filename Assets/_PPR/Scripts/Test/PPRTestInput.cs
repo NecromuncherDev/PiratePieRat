@@ -13,7 +13,7 @@ namespace PPR.Test
         [Serializable]
         internal struct KeyMapping
         {
-            [SerializeField] internal PPRCoreEvents eventToTriggerOnKey;
+            [SerializeField] internal PPREvents eventToTriggerOnKey;
             [SerializeField] internal KeyCode triggerKey;
         }
 

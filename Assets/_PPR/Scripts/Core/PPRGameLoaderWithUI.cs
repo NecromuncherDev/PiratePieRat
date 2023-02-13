@@ -30,7 +30,7 @@ namespace PPR.Core
                 await Task.Yield();
             }
 
-            InvokeEvent(PPRCoreEvents.game_start_event, null);
+            InvokeEvent(PPREvents.game_start_event, null);
         }
     }
 }

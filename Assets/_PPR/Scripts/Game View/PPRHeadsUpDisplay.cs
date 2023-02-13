@@ -10,8 +10,8 @@ namespace PPR.GameView
 
         private void OnEnable()
         {
-            AddListener(PPRCoreEvents.crew_owned_changed, UpdateCrew);
-            AddListener(PPRCoreEvents.pies_owned_changed, UpdatePies);
+            AddListener(PPREvents.crew_owned_changed, UpdateCrew);
+            AddListener(PPREvents.pies_owned_changed, UpdatePies);
         }
 
         private void UpdateCrew(object obj) => UpdateCurrencyView(ref crewView, (int)obj);
@@ -25,8 +25,8 @@ namespace PPR.GameView
 
         private void OnDisable()
         {
-            RemoveListener(PPRCoreEvents.crew_owned_changed, UpdateCrew);
-            RemoveListener(PPRCoreEvents.pies_owned_changed, UpdatePies);
+            RemoveListener(PPREvents.crew_owned_changed, UpdateCrew);
+            RemoveListener(PPREvents.pies_owned_changed, UpdatePies);
         }
     }
 }

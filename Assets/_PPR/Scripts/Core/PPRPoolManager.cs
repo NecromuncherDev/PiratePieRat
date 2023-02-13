@@ -8,10 +8,10 @@ namespace PPR.Core
     {
         private Dictionary<string, PPRPool> Pools = new();
 
-        public void InitPool(IPPRPoolable original, int amount, int maxAmount)
+        public void InitPool(PPRPoolable original, int amount, int maxAmount)
         {
             PPRManager.Instance.FactoryManager.MultiCreate(original, Vector3.zero, amount,
-                delegate (List<IPPRPoolable> list)
+                delegate (List<PPRPoolable> list)
                 {
                     foreach (var poolable in list)
                     {
@@ -20,9 +20,9 @@ namespace PPR.Core
 
                     var pool = new PPRPool
                     {
-                        AllPoolables = new Queue<IPPRPoolable>(list),
-                        UsedPoolables = new Queue<IPPRPoolable>(),
-                        AvailablePoolables = new Queue<IPPRPoolable>(list),
+                        AllPoolables = new Queue<PPRPoolable>(list),
+                        UsedPoolables = new Queue<PPRPoolable>(),
+                        AvailablePoolables = new Queue<PPRPoolable>(list),
                         MaxPoolables = maxAmount
                     };
 
@@ -30,11 +30,11 @@ namespace PPR.Core
                 });
         }
 
-        public IPPRPoolable GetPoolable(string poolName)
+        public PPRPoolable GetPoolable(string poolName)
         {
             if (Pools.TryGetValue(poolName, out PPRPool pool))
             {
-                if (pool.AvailablePoolables.TryDequeue(out IPPRPoolable poolable))
+                if (pool.AvailablePoolables.TryDequeue(out PPRPoolable poolable))
                 {
                     poolable.OnTakenFromPool();
 
@@ -53,7 +53,7 @@ namespace PPR.Core
         }
 
 
-        public void ReturnPoolable(IPPRPoolable poolable)
+        public void ReturnPoolable(PPRPoolable poolable)
         {
             if (Pools.TryGetValue(poolable.poolName, out PPRPool pool))
             {
@@ -85,33 +85,5 @@ namespace PPR.Core
                 Pools.Remove(name);
             }
         }
-    }
-
-    public class IPPRPoolable : PPRMonoBehaviour
-    {
-        public string poolName;
-
-        public virtual void OnReturnedToPool()
-        {
-            this.gameObject.SetActive(false);
-        }
-
-        public virtual void OnTakenFromPool()
-        {
-            this.gameObject.SetActive(true);
-        }
-
-        public virtual void PreDestroy()
-        {
-        }
-    }
-
-    public class PPRPool
-    {
-        public Queue<IPPRPoolable> AllPoolables = new();
-        public Queue<IPPRPoolable> UsedPoolables = new();
-        public Queue<IPPRPoolable> AvailablePoolables = new();
-
-        public int MaxPoolables = 100;
     }
 }

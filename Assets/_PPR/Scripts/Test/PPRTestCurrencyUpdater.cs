@@ -1,4 +1,5 @@
 ﻿using PPR.Core;
+using PPR.Game;
 using System.Threading.Tasks;
 
 namespace PPR.Test
@@ -14,8 +15,7 @@ namespace PPR.Test
         {
             for (int times = 0; times < 5; times++)
             {
-                InvokeEvent(PPRCoreEvents.crew_owned_changed, times);
-                InvokeEvent(PPRCoreEvents.pies_owned_changed, times);
+                
                 await Task.Delay(500);
             }
         }

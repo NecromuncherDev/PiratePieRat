@@ -6,12 +6,12 @@ namespace PPR.Test
     {
         private void Start()
         {
-            AddListener(PPRCoreEvents.game_start_event, OnGameStart);
+            AddListener(PPREvents.game_start_event, OnGameStart);
         }
 
         private void OnDestroy()
         {
-            RemoveListener(PPRCoreEvents.game_start_event, OnGameStart);
+            RemoveListener(PPREvents.game_start_event, OnGameStart);
         }
 
         protected virtual void OnGameStart(object obj)

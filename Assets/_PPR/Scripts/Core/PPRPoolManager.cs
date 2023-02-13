@@ -8,6 +8,14 @@ namespace PPR.Core
     {
         private Dictionary<string, PPRPool> Pools = new();
 
+        private Transform rootPools;
+
+        public PPRPoolManager()
+        {
+            rootPools = new GameObject().transform;
+            Object.DontDestroyOnLoad(rootPools);
+        }
+
         public void InitPool(PPRPoolable original, int amount, int maxAmount)
         {
             PPRManager.Instance.FactoryManager.MultiCreate(original, Vector3.zero, amount,
@@ -16,6 +24,8 @@ namespace PPR.Core
                     foreach (var poolable in list)
                     {
                         poolable.name = original.name;
+                        poolable.transform.parent = rootPools;
+                        poolable.gameObject.SetActive(false);
                     }
 
                     var pool = new PPRPool
@@ -26,7 +36,7 @@ namespace PPR.Core
                         MaxPoolables = maxAmount
                     };
 
-                    Pools.Add(original.gameObject.name, pool);
+                    Pools.Add(original.poolName, pool);
                 });
         }
 
@@ -36,14 +46,17 @@ namespace PPR.Core
             {
                 if (pool.AvailablePoolables.TryDequeue(out PPRPoolable poolable))
                 {
+                    Debug.Log($"GetPoolable - {poolName}");
+
                     poolable.OnTakenFromPool();
 
                     pool.UsedPoolables.Enqueue(poolable);
+                    poolable.gameObject.SetActive(true);
                     return poolable;
                 }
 
                 //Create more
-                Debug.Log($"pool - {poolName} no enough poolables, used poolables {pool.UsedPoolables.Count}");
+                Debug.Log($"pool - {poolName} not enough poolables, used poolables {pool.UsedPoolables.Count}");
 
                 return null;
             }
@@ -59,6 +72,7 @@ namespace PPR.Core
             {
                 pool.AvailablePoolables.Enqueue(poolable);
                 poolable.OnReturnedToPool();
+                poolable.gameObject.SetActive(false);
             }
         }
 

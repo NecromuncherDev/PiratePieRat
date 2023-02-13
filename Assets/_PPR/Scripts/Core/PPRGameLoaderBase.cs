@@ -1,7 +1,6 @@
 ﻿using System;
-using PPR.Core;
 
-namespace PPR.Game
+namespace PPR.Core
 {
     public class PPRGameLoaderBase : PPRMonoBehaviour
     {

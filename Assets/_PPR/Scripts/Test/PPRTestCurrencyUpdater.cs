@@ -1,5 +1,4 @@
 ﻿using PPR.Core;
-using PPR.Game;
 using System.Threading.Tasks;
 
 namespace PPR.Test
@@ -9,14 +8,17 @@ namespace PPR.Test
         protected override async void OnGameStart(object obj)
         {
             await UpdateCurrencyEvents();
+            base.OnGameStart(obj);
         }
 
         private async Task UpdateCurrencyEvents()
         {
-            for (int times = 0; times < 5; times++)
+            int maxTimes = 15;
+            for (int times = 0; times < maxTimes; times++)
             {
-                
-                await Task.Delay(500);
+                InvokeEvent(PPREvents.crew_owned_changed, times + 1);
+                InvokeEvent(PPREvents.pies_owned_changed, times + 1);
+                await Task.Delay(50);
             }
         }
     }

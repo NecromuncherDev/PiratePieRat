@@ -27,7 +27,8 @@ namespace PPR.Test
 
         private void OnStrandedTaken(object obj)
         {
-            transform.position += Vector3.right;
+            Manager.EventManager.RemoveListener(PPREvents.stranded_object_taken, OnStrandedTaken);
+            transform.position = Random.insideUnitCircle;
         }
     }
 }

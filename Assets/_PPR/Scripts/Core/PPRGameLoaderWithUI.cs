@@ -1,27 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using System.Threading.Tasks;
 
 namespace PPR.Core
 {
-    public class PPRGameLoaderWithUI : PPRMonoBehaviour
+    public class PPRGameLoaderWithUI : PPRGameLoader
     {
         [SerializeField] private GameObject loadingScrene;
         [SerializeField] private Image loadingBarFill;
 
-        public void LoadScene(int sceneID)
+        protected override async Task WaitForSceneLoad(AsyncOperation operation)
         {
-            new PPRManager(); // Need to be independent 
-            LoadSceneAsync(sceneID);
-        }
-
-        private async void LoadSceneAsync(int sceneID)
-        {
-            loadingScrene.gameObject.SetActive(true);
-            
-            AsyncOperation operation = SceneManager.LoadSceneAsync(sceneID);
-            
             float progressValue;
             while (!operation.isDone)
             {
@@ -29,8 +18,6 @@ namespace PPR.Core
                 loadingBarFill.fillAmount = progressValue;
                 await Task.Yield();
             }
-
-            InvokeEvent(PPREvents.game_start_event, null);
         }
     }
 }

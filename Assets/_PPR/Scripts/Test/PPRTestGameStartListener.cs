@@ -17,7 +17,7 @@ namespace PPR.Test
         protected virtual void OnGameStart(object obj)
         {
             print("PPRTester - OnGameStart");
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 }

@@ -6,24 +6,41 @@ namespace PPR.Core
 {
     public class PPRGameLoader : PPRMonoBehaviour
     {
+        [SerializeField] private PPRGameLoaderBase gameLogicLoader;
+
+        private PPRManager manager;
+
+        protected void Start()
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+
         public void LoadScene(int sceneID) // Called by a button click in the scene, or any other system
         {
-            new PPRManager();
+            manager = new PPRManager();
             LoadSceneAsync(sceneID);
         }
 
-        private async void LoadSceneAsync(int sceneID)
+        private void LoadSceneAsync(int sceneID)
         {
-            AsyncOperation operation = SceneManager.LoadSceneAsync(sceneID);
+            manager.LoadManager(() =>
+            {
+                gameLogicLoader.StartLoad(async () =>
+                {
+                    AsyncOperation operation = SceneManager.LoadSceneAsync(sceneID);
+                    await WaitForSceneLoad(operation);
+                    InvokeEvent(PPREvents.game_start_event, null);
+                    Destroy(gameObject);
+                });
+            });
+        }
 
-            float progressValue;
+        protected virtual async Task WaitForSceneLoad(AsyncOperation operation)
+        {
             while (!operation.isDone)
             {
-                progressValue = operation.progress; // Needed for addition of loading bar
                 await Task.Yield();
             }
-
-            InvokeEvent(PPREvents.game_start_event, null);
         }
     }
 }

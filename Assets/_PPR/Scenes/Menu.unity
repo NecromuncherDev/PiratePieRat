@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 43950901}
   - component: {fileID: 43950902}
+  - component: {fileID: 43950903}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -167,8 +168,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8b7c25d853ccc4a89cf146c7bfdb72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameLogicLoader: {fileID: 43950903}
   loadingScrene: {fileID: 1149601941}
   loadingBarFill: {fileID: 1406772469}
+--- !u!114 &43950903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43950899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5ec0ec2c5ddd841a59d3e380192581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strandedOriginal: {fileID: 6259064839144492865, guid: 1b6ff54149615ab4b8ecfcf12310e60a, type: 3}
 --- !u!1 &161199826
 GameObject:
   m_ObjectHideFlags: 0
@@ -1221,7 +1236,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 42.3
+  m_fontSize: 42.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

@@ -2,7 +2,7 @@
 
 namespace PPR.Core
 {
-    public class PPRManager: IPPRBaseManager
+    public class PPRManager : IPPRBaseManager
     {
         public static PPRManager Instance;
 

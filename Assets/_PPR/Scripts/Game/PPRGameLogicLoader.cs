@@ -1,4 +1,5 @@
-﻿using PPR.Test;
+﻿using PPR.Core;
+using PPR.Test;
 using System;
 using UnityEngine;
 
@@ -10,8 +11,8 @@ namespace PPR.Game
 
         public override void StartLoad(Action onComplete)
         {
-            var hogGameLogic = new PPRGameLogic();
-            hogGameLogic.LoadManager(() =>
+            var pprGameLogic = new PPRGameLogic();
+            pprGameLogic.LoadManager(() =>
             {
                 Manager.PoolManager.InitPool(strandedOriginal, 30, 100);
 

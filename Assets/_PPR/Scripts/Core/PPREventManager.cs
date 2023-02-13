@@ -36,8 +36,9 @@ namespace PPR.Core
         {
             if (activeListeners.TryGetValue(eventName, out var listOfEvents))
             {
-                foreach (var action in listOfEvents)
+                for (int eventIndex = 0; eventIndex < listOfEvents.Count; eventIndex++)
                 {
+                    Action<object> action = listOfEvents[eventIndex];
                     action.Invoke(obj);
                 }
             }

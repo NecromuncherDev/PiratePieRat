@@ -2,7 +2,7 @@
 {
     public class PPRPoolable : PPRMonoBehaviour
     {
-        public string poolName;
+        public PoolNames poolName;
 
         public virtual void OnReturnedToPool()
         {

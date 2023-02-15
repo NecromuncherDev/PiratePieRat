@@ -6,7 +6,7 @@ namespace PPR.Core
 {
     public class PPRPoolManager
     {
-        private Dictionary<string, PPRPool> Pools = new();
+        private Dictionary<PoolNames, PPRPool> Pools = new();
 
         private Transform rootPools;
 
@@ -47,7 +47,7 @@ namespace PPR.Core
                 });
         }
 
-        public PPRPoolable GetPoolable(string poolName)
+        public PPRPoolable GetPoolable(PoolNames poolName)
         {
             if (Pools.TryGetValue(poolName, out PPRPool pool))
             {
@@ -61,8 +61,11 @@ namespace PPR.Core
                     poolable.gameObject.SetActive(true);
                     return poolable;
                 }
+                else if (pool.AllPoolables.Count < pool.MaxPoolables)
+                {
+                    // Create more
+                }
 
-                //Create more
                 Debug.Log($"pool - {poolName} not enough poolables, used poolables {pool.UsedPoolables.Count}");
 
                 return null;
@@ -84,7 +87,7 @@ namespace PPR.Core
         }
 
 
-        public void DestroyPool(string name)
+        public void DestroyPool(PoolNames name)
         {
             if (Pools.TryGetValue(name, out PPRPool pool))
             {
@@ -106,5 +109,16 @@ namespace PPR.Core
                 Pools.Remove(name);
             }
         }
+    }
+
+    public enum PoolNames
+    {
+        NA = 0,
+        ScoreToast = 1,
+        PieThrow = 2,
+        PieCrate = 3,
+        RatCrate = 4,
+        RatStranded = 5, 
+        RatCrew = 6,
     }
 }

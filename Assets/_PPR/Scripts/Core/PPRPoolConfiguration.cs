@@ -6,7 +6,7 @@ namespace PPR.Core
     public class PPRPoolConfiguration : ScriptableObject
     {
         public PPRPoolable PoolableOriginial;
-        public string PoolName;
+        public PoolNames PoolName;
         public int PoolInitialSize;
         public int PoolMaxSize;
     }

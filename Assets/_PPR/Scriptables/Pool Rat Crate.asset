@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Pool Rat Crate
   m_EditorClassIdentifier: 
   PoolableOriginial: {fileID: 8705739329619413876, guid: 5c8d37eadfe18194c8c09d259ec8c743, type: 3}
-  PoolName: RatCratePool
+  PoolName: 4
   PoolInitialSize: 5
   PoolMaxSize: 25

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Pool Pie Crate
   m_EditorClassIdentifier: 
   PoolableOriginial: {fileID: -1447969986850696458, guid: 8ac096b14b2896340b1b29bf95eff3d5, type: 3}
-  PoolName: PieCratePool
+  PoolName: 3
   PoolInitialSize: 5
   PoolMaxSize: 25

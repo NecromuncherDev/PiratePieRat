@@ -12,7 +12,7 @@ namespace PPR.Test
         {
             if (Input.GetKeyDown(KeyCode.D))
             {
-                var stranded = Manager.PoolManager.GetPoolable("RatStrandedPool");
+                var stranded = Manager.PoolManager.GetPoolable(PoolNames.RatStranded);
                 poolables.Enqueue(stranded);
             }
 

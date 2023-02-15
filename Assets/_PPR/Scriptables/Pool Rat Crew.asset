@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Pool Rat Crew
   m_EditorClassIdentifier: 
   PoolableOriginial: {fileID: 0}
-  PoolName: RatCrewPool
+  PoolName: 6
   PoolInitialSize: 5
   PoolMaxSize: 250

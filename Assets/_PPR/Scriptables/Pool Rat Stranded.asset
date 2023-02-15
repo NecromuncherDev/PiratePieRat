@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Pool Rat Stranded
   m_EditorClassIdentifier: 
   PoolableOriginial: {fileID: 1861190416440895210, guid: 822ed4ec6e4b01645a3796e8ffcb2b15, type: 3}
-  PoolName: RatStrandedPool
+  PoolName: 5
   PoolInitialSize: 5
   PoolMaxSize: 25

@@ -16,14 +16,21 @@ namespace PPR.Core
             Object.DontDestroyOnLoad(rootPools);
         }
 
-        public void InitPool(PPRPoolable original, int amount, int maxAmount)
+        public void InitPool(PPRPoolConfiguration poolConfig)
         {
-            PPRManager.Instance.FactoryManager.MultiCreate(original, Vector3.zero, amount,
+            if (poolConfig.PoolableOriginial == null)
+            {
+                Debug.LogError("PPRPoolManager - Attempted to initialize a pool with null as original object.");
+                return;
+            }
+
+            PPRManager.Instance.FactoryManager.MultiCreate(poolConfig.PoolableOriginial, Vector3.zero, poolConfig.PoolInitialSize,
                 delegate (List<PPRPoolable> list)
                 {
                     foreach (var poolable in list)
                     {
-                        poolable.name = original.name;
+                        poolable.poolName = poolConfig.PoolName;
+                        poolable.name = poolConfig.PoolableOriginial.name;
                         poolable.transform.parent = rootPools;
                         poolable.gameObject.SetActive(false);
                     }
@@ -33,10 +40,10 @@ namespace PPR.Core
                         AllPoolables = new Queue<PPRPoolable>(list),
                         UsedPoolables = new Queue<PPRPoolable>(),
                         AvailablePoolables = new Queue<PPRPoolable>(list),
-                        MaxPoolables = maxAmount
+                        MaxPoolables = poolConfig.PoolMaxSize
                     };
 
-                    Pools.Add(original.poolName, pool);
+                    Pools.Add(poolConfig.PoolName, pool);
                 });
         }
 

@@ -7,7 +7,7 @@ namespace PPR.Test
     {
         private void OnMouseDown()
         {
-            Manager.PoolManager.DestroyPool("StrandedPool");
+            Manager.PoolManager.DestroyPool(poolName);
         }
 
         public override void OnReturnedToPool()

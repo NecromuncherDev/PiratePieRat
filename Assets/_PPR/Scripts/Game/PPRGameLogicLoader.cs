@@ -1,20 +1,23 @@
 ﻿using PPR.Core;
-using PPR.Test;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace PPR.Game
 {
     public class PPRGameLogicLoader : PPRGameLoaderBase
     {
-        [SerializeField] private PPRStrandedObjectComponent strandedOriginal;
+        [SerializeField] private List<PPRPoolConfiguration> pools = new();
 
         public override void StartLoad(Action onComplete)
         {
             var pprGameLogic = new PPRGameLogic();
             pprGameLogic.LoadManager(() =>
             {
-                Manager.PoolManager.InitPool(strandedOriginal, 30, 100);
+                foreach (var config in pools)
+                {
+                    Manager.PoolManager.InitPool(config);
+                }
 
                 base.StartLoad(onComplete);
             });

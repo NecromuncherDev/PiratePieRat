@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4394031776827506188}
   - component: {fileID: 4394031776827506187}
+  - component: {fileID: -1447969986850696458}
   m_Layer: 0
   m_Name: Pie Crate
   m_TagString: Untagged
@@ -84,3 +85,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-1447969986850696458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4394031776827506186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa5e788f084e97d41b7f0190a818030a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolName: StrandedPool

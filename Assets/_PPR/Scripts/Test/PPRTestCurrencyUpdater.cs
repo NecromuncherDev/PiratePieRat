@@ -16,8 +16,8 @@ namespace PPR.Test
             int maxTimes = 15;
             for (int times = 0; times < maxTimes; times++)
             {
-                InvokeEvent(PPREvents.crew_owned_changed, times + 1);
-                InvokeEvent(PPREvents.pies_owned_changed, times + 1);
+                InvokeEvent(PPREvents.currency_crew_set, times + 1);
+                InvokeEvent(PPREvents.currency_pies_set, times + 1);
                 await Task.Delay(50);
             }
         }

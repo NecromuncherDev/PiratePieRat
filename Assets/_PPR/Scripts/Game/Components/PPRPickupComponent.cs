@@ -1,9 +1,9 @@
 ﻿using PPR.Core;
 using UnityEngine;
 
-namespace PPR.Test
+namespace PPR.Game
 {
-    public class PPRStrandedObjectComponent : PPRPoolable
+    public class PPRPickupComponent : PPRPoolable
     {
         private void OnMouseDown()
         {

@@ -5,7 +5,7 @@ namespace PPR.Game
 {
     public class PPRCurrencyManager
     {
-        public PPRPlayerCurrencyData PlayerCurrencyData;
+        public PPRPlayerCurrencyData PlayerCurrencyData = new();
 
         /// <summary>
         /// Try (If manage to success return true)
@@ -38,7 +38,7 @@ namespace PPR.Game
         public void SetCurrencyByTag(CurrencyTags tag, int amount = 0)
         {
             PlayerCurrencyData.CurrencyByTag[tag] = amount;
-            PPRManager.Instance.EventManager.InvokeEvent(PPREvents.on_currency_set, (tag, amount));
+            PPRManager.Instance.EventManager.InvokeEvent(PPREvents.currency_set, (tag, amount));
         }
 
         public void ChangeCurrencyByTagByAmount(CurrencyTags tag, int amount)
@@ -49,6 +49,7 @@ namespace PPR.Game
 
             SetCurrencyByTag(tag, changeAmount);
         }
+
         public bool TryUseCurrency(CurrencyTags tag, int amountToReduce)
         {
             int currency = 0;

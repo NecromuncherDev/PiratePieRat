@@ -2,20 +2,23 @@
 {
     public enum PPREvents
     {
-        game_start_event,
-        scene_loading_operation_progressed,
-        on_currency_set,
-        on_currency_changed,
-        crew_collected,
-        crew_dropped,
-        crew_owned_changed,
-        pies_collected,
-        pies_dropped,
-        pies_owned_changed,
-        player_object_awake,
-        player_ship_move_trigger,
-        player_ship_stop_trigger,
-        stranded_object_taken,
-        item_upgraded
+        // Scene Progression
+        game_start_event = 0,
+        scene_loading_operation_progressed = 1,
+
+        // Currency
+        currency_set = 10,
+        currency_crew_set = 11,
+        currency_pies_set = 12,
+        currency_cheese_set = 13,
+
+        // Player Object
+        player_object_awake = 20,
+        player_ship_move_trigger = 21,
+        player_ship_stop_trigger = 22,
+
+        // Pickups and upgrades
+        item_upgraded = 30,
+        stranded_object_taken = 31,
     }
 }

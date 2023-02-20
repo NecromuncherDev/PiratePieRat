@@ -3,32 +3,56 @@ using UnityEngine;
 
 namespace PPR.Game
 {
+    [RequireComponent(typeof(Collider2D))]
     public class PPRPickupComponent : PPRPoolable
     {
-        private void OnMouseDown()
+        /// <summary>
+        /// Method <c>OnTakenFromPool</c> is called when a poolable object is retrieved from the pool. 
+        /// </summary>
+        public override void OnTakenFromPool()
         {
-            Manager.PoolManager.DestroyPool(poolName);
+            OnPickupCreated(this);
+
+            base.OnTakenFromPool();
+            Manager.EventManager.InvokeEvent(PPREvents.pickup_taken_from_pool, this);
         }
 
+
+        /// <summary>
+        /// Method <c>OnReturnedToPool</c> is called when a poolable object is returned to the pool.
+        /// It rsets the object position
+        /// </summary>
         public override void OnReturnedToPool()
         {
             transform.position = Vector3.zero;
-            Manager.EventManager.RemoveListener(PPREvents.stranded_object_taken, OnStrandedTaken);
             base.OnReturnedToPool();
         }
 
-        public override void OnTakenFromPool()
+        protected virtual void OnPickupCreated(object obj)
         {
-            Manager.EventManager.AddListener(PPREvents.stranded_object_taken, OnStrandedTaken);
-            base.OnTakenFromPool();
-
-            Manager.EventManager.InvokeEvent(PPREvents.stranded_object_taken, this);
+            transform.position = Random.insideUnitCircle;
         }
 
-        private void OnStrandedTaken(object obj)
+        protected virtual void OnPickupCollected(object obj)
         {
-            Manager.EventManager.RemoveListener(PPREvents.stranded_object_taken, OnStrandedTaken);
-            transform.position = Random.insideUnitCircle;
+            Manager.EventManager.InvokeEvent(PPREvents.pickup_collected, this);
+            Manager.PoolManager.ReturnPoolable(this);
+        }
+
+        protected virtual void OnPickupDestroyed(object obj)
+        {
+            Manager.EventManager.InvokeEvent(PPREvents.pickup_destroyed, this);
+            Manager.PoolManager.ReturnPoolable(this);
+        }
+
+        public void CollectPickup()
+        {
+            OnPickupCollected(this);
+        }
+
+        public void DestroyPickup()
+        {
+            OnPickupDestroyed(this);
         }
     }
 }

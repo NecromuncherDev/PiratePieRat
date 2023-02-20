@@ -1,4 +1,5 @@
 using PPR.Core;
+using System;
 using System.Collections.Generic;
 
 namespace PPR.Game
@@ -6,6 +7,11 @@ namespace PPR.Game
     public class PPRCurrencyManager
     {
         public PPRPlayerCurrencyData PlayerCurrencyData = new();
+
+        public PPRCurrencyManager()
+        {
+            PPRManager.Instance.EventManager.AddListener(PPREvents.currency_collected, OnCurrencyCollected);
+        }
 
         /// <summary>
         /// Try (If manage to success return true)
@@ -68,6 +74,18 @@ namespace PPR.Game
 
             return hasEnough;
         }
+
+        private void OnCurrencyCollected(object obj)
+        {
+            var data = ((CurrencyTags, int))obj;
+            ChangeCurrencyByTagByAmount(data.Item1, data.Item2);
+
+        }
+
+        ~PPRCurrencyManager()
+        {
+            PPRManager.Instance.EventManager.RemoveListener(PPREvents.currency_collected, OnCurrencyCollected);
+        }
     }
 
     public class PPRPlayerCurrencyData
@@ -77,8 +95,9 @@ namespace PPR.Game
 
     public enum CurrencyTags
     {
-        Crew = 0,
-        Pies = 1,
-        Cheese = 2,
+        NA = 0,
+        Crew = 1,
+        Pies = 2,
+        Cheese = 3,
     }
 }

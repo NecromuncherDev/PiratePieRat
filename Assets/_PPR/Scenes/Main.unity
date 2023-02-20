@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 43950901}
   - component: {fileID: 43950903}
+  - component: {fileID: 43950904}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -167,7 +168,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5ec0ec2c5ddd841a59d3e380192581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pools: []
+  pools:
+  - {fileID: 11400000, guid: e8f7053ead1c89e4ebc95ea9ed001f59, type: 2}
+  - {fileID: 11400000, guid: b72e18723e412154b86530236db67869, type: 2}
+  - {fileID: 11400000, guid: 536a6275f93621d4fb9d382fd82b6a52, type: 2}
+  - {fileID: 11400000, guid: 97a8ffd9bba62bc419bf69eeb6cfeb5e, type: 2}
+--- !u!114 &43950904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43950899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b66bd01a058654489b8f9549f343d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &263318474
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,6 +232,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -288,6 +306,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe7b5ee57397b134da4970c2c51b5d2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerCurrency: 1
+  shakeDuration: 0.1
+  baseStrengthShake: 1
+  shakeVibBase: 1
 --- !u!1 &585852810
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,7 +340,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &585852811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,6 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 179872d2270d65a4da47e2c3a8c031d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poolName: 3
 --- !u!1 &717389045
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,7 +764,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1442611127
 Transform:
   m_ObjectHideFlags: 0
@@ -759,6 +794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scorePoolConfig: {fileID: 11400000, guid: 97a8ffd9bba62bc419bf69eeb6cfeb5e, type: 2}
+  currencyTag: 1
 --- !u!135 &1442611129
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -873,7 +909,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: e79a9e9d6396eba438900afb0357e808, type: 3}
     - target: {fileID: 8497236793019227983, guid: 72196e7b45cd6c4409b988d3cc06613e, type: 3}
       propertyPath: currencyUpdateEnvent
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72196e7b45cd6c4409b988d3cc06613e, type: 3}
@@ -1209,7 +1245,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 0ccc508108fa6ed4fa11b4a467d7f609, type: 3}
     - target: {fileID: 8497236793019227983, guid: 72196e7b45cd6c4409b988d3cc06613e, type: 3}
       propertyPath: currencyUpdateEnvent
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72196e7b45cd6c4409b988d3cc06613e, type: 3}

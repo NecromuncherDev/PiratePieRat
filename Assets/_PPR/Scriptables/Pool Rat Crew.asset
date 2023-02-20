@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PoolableOriginial: {fileID: 0}
   PoolName: 6
-  PoolInitialSize: 5
+  PoolInitialSize: 25
   PoolMaxSize: 250

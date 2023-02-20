@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81def13179054d41ae61c4f141edb7b, type: 3}
   m_Name: Pool Rat Crate
   m_EditorClassIdentifier: 
-  PoolableOriginial: {fileID: 8705739329619413876, guid: 5c8d37eadfe18194c8c09d259ec8c743, type: 3}
+  PoolableOriginial: {fileID: -7157909860392229257, guid: 74700d78b3bc2694d9d7b92f10ce9d01, type: 3}
   PoolName: 4
-  PoolInitialSize: 5
-  PoolMaxSize: 25
+  PoolInitialSize: 25
+  PoolMaxSize: 100

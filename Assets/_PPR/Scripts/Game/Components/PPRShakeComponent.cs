@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace PPR.Game
 {
-    public class PPRCameraComponent : PPRLogicMonoBehaviour
+    public class PPRShakeComponent : PPRLogicMonoBehaviour
     {
         [Header("Triggers")]
         [SerializeField] private CurrencyTags triggerCurrency;
@@ -30,11 +30,11 @@ namespace PPR.Game
 
             if (scoreEventData.Item1 == triggerCurrency)
             {
-                ShakeCamera();
+                Shake();
             }
         }
 
-        private void ShakeCamera()
+        private void Shake()
         {
             transform.DOShakePosition(shakeDuration, baseStrengthShake, shakeVibBase);
         }

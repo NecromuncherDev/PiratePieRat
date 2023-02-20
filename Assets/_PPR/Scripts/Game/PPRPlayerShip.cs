@@ -12,14 +12,14 @@ namespace PPR.Game
 
         private void OnEnable()
         {
-            AddListener(PPREvents.player_ship_move_trigger, CheckStartMoving);
-            AddListener(PPREvents.player_ship_stop_trigger, CheckStopMoving);
+            AddListener(PPREvents.player_object_start_move, CheckStartMoving);
+            AddListener(PPREvents.player_object_stop_move, CheckStopMoving);
         }
 
         private void OnDisable()
         {
-            RemoveListener(PPREvents.player_ship_move_trigger, CheckStartMoving);
-            RemoveListener(PPREvents.player_ship_stop_trigger, CheckStopMoving);
+            RemoveListener(PPREvents.player_object_start_move, CheckStartMoving);
+            RemoveListener(PPREvents.player_object_stop_move, CheckStopMoving);
         }
     }
 }

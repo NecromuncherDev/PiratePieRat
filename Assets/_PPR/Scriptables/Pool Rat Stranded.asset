@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81def13179054d41ae61c4f141edb7b, type: 3}
   m_Name: Pool Rat Stranded
   m_EditorClassIdentifier: 
-  PoolableOriginial: {fileID: -7157909860392229257, guid: a4b3f08f673a83443a52754e61b33628, type: 3}
+  PoolableOriginial: {fileID: 2373946388593122678, guid: 6c637dbad78e7a74b8ded508a985d55b, type: 3}
   PoolName: 5
-  PoolInitialSize: 5
-  PoolMaxSize: 25
+  PoolInitialSize: 25
+  PoolMaxSize: 100

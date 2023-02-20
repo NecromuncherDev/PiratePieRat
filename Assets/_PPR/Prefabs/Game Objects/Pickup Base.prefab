@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 4394031776827506188}
   - component: {fileID: 4394031776827506187}
   - component: {fileID: -7157909860392229257}
-  - component: {fileID: 6432121287653306707}
-  - component: {fileID: -2064898416657440456}
-  m_Layer: 0
-  m_Name: Pie Crate Rat
+  - component: {fileID: -8165850815877721314}
+  - component: {fileID: 6080053698788404743}
+  m_Layer: 6
+  m_Name: Pickup Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &-7157909860392229257
@@ -99,25 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e794aa7d80dbb19459012db476d7d230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolName: 4
-  Amount: 5
-  Currency: 2
---- !u!114 &6432121287653306707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4394031776827506186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e794aa7d80dbb19459012db476d7d230, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   poolName: 0
-  Amount: 1
-  Currency: 1
---- !u!58 &-2064898416657440456
+  Amount: 0
+  Currency: 0
+--- !u!58 &-8165850815877721314
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,3 +118,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!50 &6080053698788404743
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4394031776827506186}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

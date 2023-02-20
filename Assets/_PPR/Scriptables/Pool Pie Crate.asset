@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81def13179054d41ae61c4f141edb7b, type: 3}
   m_Name: Pool Pie Crate
   m_EditorClassIdentifier: 
-  PoolableOriginial: {fileID: -7157909860392229257, guid: 8ac096b14b2896340b1b29bf95eff3d5, type: 3}
+  PoolableOriginial: {fileID: 1140533032269421917, guid: 45ada21901286bc4e9cae4f5b6d75121, type: 3}
   PoolName: 3
   PoolInitialSize: 25
   PoolMaxSize: 100

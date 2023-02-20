@@ -23,7 +23,30 @@ namespace PPR.Test
             {
                 if (Input.GetKeyDown(keyMap.triggerKey))
                 {
-                    InvokeEvent(keyMap.eventToTriggerOnKey, PPRGameManager.playerObjectID);
+                    switch (keyMap.eventToTriggerOnKey)
+                    {
+                        case PPREvents.player_object_start_move:
+                            InvokeEvent(keyMap.eventToTriggerOnKey, UnityEngine.Random.insideUnitCircle.normalized);
+                            break;
+                        
+                        case PPREvents.game_start_event:
+                        case PPREvents.scene_loading_operation_progressed:
+                        case PPREvents.currency_set:
+                        case PPREvents.currency_collected:
+                        case PPREvents.currency_crew_set:
+                        case PPREvents.currency_pies_set:
+                        case PPREvents.currency_cheese_set:
+                        case PPREvents.player_object_awake:
+                        case PPREvents.player_object_stop_move:
+                        case PPREvents.item_upgraded:
+                        case PPREvents.pickup_taken_from_pool:
+                        case PPREvents.pickup_returned_to_pool:
+                        case PPREvents.pickup_collected:
+                        case PPREvents.pickup_destroyed:
+                        default:
+                            InvokeEvent(keyMap.eventToTriggerOnKey);
+                            break;
+                    }
                 }
             }
         }

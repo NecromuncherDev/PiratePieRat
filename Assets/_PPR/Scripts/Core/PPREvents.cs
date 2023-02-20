@@ -15,8 +15,8 @@
 
         // Player Object 20-29
         player_object_awake = 20,
-        player_ship_move_trigger = 21,
-        player_ship_stop_trigger = 22,
+        player_object_start_move = 21,
+        player_object_stop_move = 22,
 
         // Pickups and upgrades 30-39
         item_upgraded = 30,

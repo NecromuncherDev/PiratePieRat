@@ -4,7 +4,8 @@
     {
         // Scene Progression 0-9
         game_start_event = 0,
-        scene_loading_operation_progressed = 1,
+        game_stop_event = 1,
+        scene_loading_operation_progressed = 2,
 
         // Currency 10-19
         currency_set = 10,

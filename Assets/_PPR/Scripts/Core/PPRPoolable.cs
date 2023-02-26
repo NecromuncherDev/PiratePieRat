@@ -10,7 +10,7 @@
         /// </summary>
         public virtual void OnReturnedToPool()
         {
-            this.gameObject.SetActive(false);
+            this.gameObject?.SetActive(false);
         }
 
         /// <summary>
@@ -19,7 +19,7 @@
         /// </summary>
         public virtual void OnTakenFromPool()
         {
-            this.gameObject.SetActive(true);
+            this.gameObject?.SetActive(true);
         }
 
         public virtual void PreDestroy()

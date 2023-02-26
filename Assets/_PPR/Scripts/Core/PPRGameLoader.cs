@@ -29,7 +29,7 @@ namespace PPR.Core
                 {
                     AsyncOperation operation = SceneManager.LoadSceneAsync(sceneID);
                     await WaitForSceneLoad(operation);
-                    InvokeEvent(PPREvents.game_start_event, null);
+                    InvokeEvent(PPREvents.game_start_event);
                     Destroy(gameObject);
                 });
             });

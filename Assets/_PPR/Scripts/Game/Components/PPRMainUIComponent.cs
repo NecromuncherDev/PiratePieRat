@@ -1,25 +1,19 @@
 ﻿using PPR.Core;
-using TMPro;
 using UnityEngine;
 
 namespace PPR.Game
 {
     public class PPRMainUIComponent : PPRLogicMonoBehaviour
     {
-        [SerializeField] private TMP_Text scoreText;
 
         private void OnEnable()
         {
-            var score = 0;
-            GameLogic.CurrencyManager.TryGetCurrencyByTag(CurrencyTags.Pies, ref score);
-            scoreText.text = score.ToString("N0");
-
-            AddListener(PPREvents.currency_set, OnCurrencySet);
+            AddListener(PPREvents.currency_collected, OnCurrencySet);
         }
 
         private void OnDisable()
         {
-            RemoveListener(PPREvents.currency_set, OnCurrencySet);
+            RemoveListener(PPREvents.currency_collected, OnCurrencySet);
         }
 
         private void OnCurrencySet(object obj)
@@ -28,13 +22,29 @@ namespace PPR.Game
 
             if (scoreEventData.Item1 == CurrencyTags.Pies)
             {
-                scoreText.text = scoreEventData.Item2.ToString("N0");
+                GeneratePopup(scoreEventData.Item2);
+                //scoreText.text = scoreEventData.Item2.ToString("N0");
             }
+        }
+
+        private void GeneratePopup(int amount)
+        {
+            if (amount <= 0)
+                return;
+
+            //var power = GameLogic.UpgradeManager.GetPowerByIDAndLevel(clickUpgradeData.UpgradeableTypeID, clickUpgradeData.CurrentLevel);
+
+            //GameLogic.CurrencyManager.ChangeCurrencyByTagByAmount(currencyTag, power);
+
+            var scoreText = (PPRTweenScoreComponent)Manager.PoolManager.GetPoolable(PoolNames.ScoreToast);
+            Vector3 spawnPoint = new Vector3(Screen.width / 2, Screen.height / 2, -Camera.main.transform.position.z);
+            scoreText.transform.position = Camera.main.ScreenToWorldPoint(spawnPoint);
+            scoreText.Init(amount);
         }
 
         public void OnUpgradePressed()
         {
-            //GameLogic.UpgradeManager.UpgradeItemByID(UpgradeableTypeIDs.ClickPowerUpgrade);
+            GameLogic.UpgradeManager.UpgradeItemByID(UpgradeableTypeIDs.ClickPowerUpgrade);
         }
     }
 }

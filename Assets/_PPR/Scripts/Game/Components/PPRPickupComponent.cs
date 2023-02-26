@@ -30,7 +30,7 @@ namespace PPR.Game
 
         protected virtual void OnPickupCreated(object obj)
         {
-            transform.position = Random.insideUnitCircle;
+            //transform.position = Random.insideUnitCircle;
         }
 
         protected virtual void OnPickupCollected(object obj)

@@ -9,7 +9,7 @@ namespace PPR.Game
     public class PPRUpgradeManager
     {
         public PPRPlayerUpgradeInventoryData PlayerUpgradeInventoryData; // Player saved data
-        public PPRUpgradeManagerConfig UpgradeConfig; // From cloud
+        public PPRUpgradeManagerConfig UpgradeConfig = new(); // From cloud
 
         //MockData
         //Load From Save Data On Device (Future)
@@ -21,7 +21,7 @@ namespace PPR.Game
                 Upgradeables = new List<PPRUpgradeableData>(){new PPRUpgradeableData
                     {
                         UpgradeableTypeID = UpgradeableTypeIDs.ClickPowerUpgrade,
-                        CurrentLevel = 1
+                        CurrentLevel = 0
                     }
                 }
             };
@@ -34,20 +34,20 @@ namespace PPR.Game
             if (upgradeable != null)
             {
                 // TODO: Config + Reduce score
-                //var upgradeableConfig = GetPprUpgradeableConfigByID(typeID);
-                //PPRUpgradeableLevelData levelData = upgradeableConfig.UpgradeableLevelData[upgradeable.CurrentLevel + 1]; // Get next level of item
-                //int amountToReduce = levelData.CurrencyCost;
-                //CurrencyTags currencyType = levelData.CurrencyTag;
+                var upgradeableConfig = GetPprUpgradeableConfigByID(typeID);
+                PPRUpgradeableLevelData levelData = upgradeableConfig.UpgradeableLevelData[upgradeable.CurrentLevel + 1]; // Get next level of item
+                int amountToReduce = levelData.CurrencyCost;
+                CurrencyTags currencyType = levelData.CurrencyTag;
 
-                //if (PPRGameLogic.Instance.CurrencyManager.TryUseCurrency(currencyType, amountToReduce))
+                if (PPRGameLogic.Instance.CurrencyManager.TryUseCurrency(currencyType, amountToReduce))
                 {
                     upgradeable.CurrentLevel++;
                     PPRManager.Instance.EventManager.InvokeEvent(PPREvents.item_upgraded, typeID);
                 }
-                //else
-                //{
-                //    Debug.LogError($"UpgradeItemByID: Not enough currency of type \"{currencyType}\" to upgrade item of type \"{typeID}\".");
-                //}
+                else
+                {
+                    Debug.LogError($"UpgradeItemByID: Not enough currency of type \"{currencyType}\" to upgrade item of type \"{typeID}\".");
+                }
             }
         }
         
@@ -55,6 +55,14 @@ namespace PPR.Game
         {
             PPRUpgradeableConfig upgradeableConfig = UpgradeConfig.UpgradeableConfigs.FirstOrDefault(upgradeable => upgradeable.UpgradeableID == typeID);
             return upgradeableConfig;
+        }
+
+        public int GetPowerByIDAndLevel(UpgradeableTypeIDs typeID, int level)
+        {
+            var upgradeableConfig = GetPprUpgradeableConfigByID(typeID);
+            var power = upgradeableConfig.UpgradeableLevelData[level].Power;
+
+            return power;
         }
 
         public PPRUpgradeableData GetUpgradeableByID(UpgradeableTypeIDs typeID)
@@ -95,7 +103,44 @@ namespace PPR.Game
     [Serializable]
     public class PPRUpgradeManagerConfig
     {
-        public List<PPRUpgradeableConfig> UpgradeableConfigs;
+        public List<PPRUpgradeableConfig> UpgradeableConfigs = new() 
+        {
+            new PPRUpgradeableConfig
+            {
+                UpgradeableID = UpgradeableTypeIDs.ClickPowerUpgrade,
+                UpgradeableLevelData = new List<PPRUpgradeableLevelData>() 
+                {
+                    new()
+                    {
+                        Level = 1, 
+                        CurrencyCost = 0,
+                        CurrencyTag = CurrencyTags.Pies,
+                        Power = 1
+                    },
+                    new()
+                    {
+                        Level = 2,
+                        CurrencyCost = 100,
+                        CurrencyTag = CurrencyTags.Pies,
+                        Power = 2
+                    },
+                    new()
+                    {
+                        Level = 3,
+                        CurrencyCost = 500,
+                        CurrencyTag = CurrencyTags.Pies,
+                        Power = 5
+                    },
+                    new()
+                    {
+                        Level = 4,
+                        CurrencyCost = 2500,
+                        CurrencyTag = CurrencyTags.Pies,
+                        Power = 15
+                    },
+                }
+            }
+        };
     }
 
     // All player saved data

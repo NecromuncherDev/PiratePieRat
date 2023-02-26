@@ -20,12 +20,13 @@ namespace PPR.Game
 
         public void OnMouseUpAsButton()
         {
-            //TODO: Convert level to power from config
-            GameLogic.CurrencyManager.ChangeCurrencyByTagByAmount(currencyTag, clickUpgradeData.CurrentLevel);
+            var power = GameLogic.UpgradeManager.GetPowerByIDAndLevel(clickUpgradeData.UpgradeableTypeID, clickUpgradeData.CurrentLevel);
+
+            GameLogic.CurrencyManager.ChangeCurrencyByTagByAmount(currencyTag, power);
 
             var scoreText = (PPRTweenScoreComponent)Manager.PoolManager.GetPoolable(PoolNames.ScoreToast);
             scoreText.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + Vector3.forward * -Camera.main.transform.position.z;
-            scoreText.Init(clickUpgradeData.CurrentLevel);
+            scoreText.Init(power);
         }
     }
 }

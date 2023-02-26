@@ -19,6 +19,18 @@ PrefabInstance:
       propertyPath: poolName
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2537601888628512152, guid: 8ac096b14b2896340b1b29bf95eff3d5, type: 3}
+      propertyPath: Amount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537601888628512152, guid: 8ac096b14b2896340b1b29bf95eff3d5, type: 3}
+      propertyPath: Currency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537601888628512152, guid: 8ac096b14b2896340b1b29bf95eff3d5, type: 3}
+      propertyPath: poolName
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4394031776827506186, guid: 8ac096b14b2896340b1b29bf95eff3d5, type: 3}
       propertyPath: m_Name
       value: Pickup Pie Crate Rat
@@ -27,6 +39,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
+    - target: {fileID: 4394031776827506187, guid: 8ac096b14b2896340b1b29bf95eff3d5, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4394031776827506188, guid: 8ac096b14b2896340b1b29bf95eff3d5, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -83,7 +99,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4394031776827506186, guid: 8ac096b14b2896340b1b29bf95eff3d5, type: 3}
   m_PrefabInstance: {fileID: 7219187630839143357}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5328188501280913528
+--- !u!114 &-2474396610545149605
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,9 +108,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6401031758654694839}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e794aa7d80dbb19459012db476d7d230, type: 3}
+  m_Script: {fileID: 11500000, guid: a4957d225b63fac47b6f8a034e9ea4d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   poolName: 0
-  Amount: 1
-  Currency: 1
+  Amount: 5
+  Currency: 2

@@ -19,6 +19,18 @@ PrefabInstance:
       propertyPath: poolName
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2537601888628512152, guid: 8ac096b14b2896340b1b29bf95eff3d5, type: 3}
+      propertyPath: Amount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537601888628512152, guid: 8ac096b14b2896340b1b29bf95eff3d5, type: 3}
+      propertyPath: Currency
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537601888628512152, guid: 8ac096b14b2896340b1b29bf95eff3d5, type: 3}
+      propertyPath: poolName
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4394031776827506186, guid: 8ac096b14b2896340b1b29bf95eff3d5, type: 3}
       propertyPath: m_Name
       value: Pickup Pie Crate

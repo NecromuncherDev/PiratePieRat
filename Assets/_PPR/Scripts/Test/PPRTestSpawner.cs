@@ -14,6 +14,7 @@ namespace PPR.Test
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 var stranded = Manager.PoolManager.GetPoolable(poolName);
+                stranded.gameObject.transform.position = Random.insideUnitCircle;
                 poolables.Enqueue(stranded);
             }
 

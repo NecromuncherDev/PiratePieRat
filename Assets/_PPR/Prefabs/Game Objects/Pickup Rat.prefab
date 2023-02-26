@@ -19,6 +19,18 @@ PrefabInstance:
       propertyPath: poolName
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2537601888628512152, guid: 8ac096b14b2896340b1b29bf95eff3d5, type: 3}
+      propertyPath: Amount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537601888628512152, guid: 8ac096b14b2896340b1b29bf95eff3d5, type: 3}
+      propertyPath: Currency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537601888628512152, guid: 8ac096b14b2896340b1b29bf95eff3d5, type: 3}
+      propertyPath: poolName
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4394031776827506186, guid: 8ac096b14b2896340b1b29bf95eff3d5, type: 3}
       propertyPath: m_Name
       value: Pickup Rat
@@ -27,6 +39,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+    - target: {fileID: 4394031776827506187, guid: 8ac096b14b2896340b1b29bf95eff3d5, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4394031776827506188, guid: 8ac096b14b2896340b1b29bf95eff3d5, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -9,13 +9,18 @@ namespace PPR.Game
     public class PPRUpgradeManager
     {
         public PPRPlayerUpgradeInventoryData PlayerUpgradeInventoryData; // Player saved data
-        public PPRUpgradeManagerConfig UpgradeConfig = new(); // From cloud
+        public PPRUpgradeManagerConfig UpgradeConfig = new(); // From file. TODO: get from cloud
 
-        //MockData
-        //Load From Save Data On Device (Future)
-        //Load Config From Load
+        // MockData
+        // Load From Save Data On Device (Future)
+        // Load Config From Load
         public PPRUpgradeManager()
         {
+            PPRManager.Instance.ConfigManager.GetConfigAsync<PPRUpgradeManagerConfig>("upgrade_config", delegate (PPRUpgradeManagerConfig config)
+            {
+                UpgradeConfig = config;
+            });
+
             PlayerUpgradeInventoryData = new PPRPlayerUpgradeInventoryData
             {
                 Upgradeables = new List<PPRUpgradeableData>(){new PPRUpgradeableData
@@ -103,49 +108,12 @@ namespace PPR.Game
     [Serializable]
     public class PPRUpgradeManagerConfig
     {
-        public List<PPRUpgradeableConfig> UpgradeableConfigs = new() 
-        {
-            new PPRUpgradeableConfig
-            {
-                UpgradeableID = UpgradeableTypeIDs.RatPowerUpgrade,
-                UpgradeableLevelData = new List<PPRUpgradeableLevelData>() 
-                {
-                    new()
-                    {
-                        Level = 1, 
-                        CurrencyCost = 0,
-                        CurrencyTag = CurrencyTags.Pies,
-                        Power = 1
-                    },
-                    new()
-                    {
-                        Level = 2,
-                        CurrencyCost = 100,
-                        CurrencyTag = CurrencyTags.Pies,
-                        Power = 2
-                    },
-                    new()
-                    {
-                        Level = 3,
-                        CurrencyCost = 500,
-                        CurrencyTag = CurrencyTags.Pies,
-                        Power = 5
-                    },
-                    new()
-                    {
-                        Level = 4,
-                        CurrencyCost = 2500,
-                        CurrencyTag = CurrencyTags.Pies,
-                        Power = 15
-                    },
-                }
-            }
-        };
+        public List<PPRUpgradeableConfig> UpgradeableConfigs;
     }
 
     // All player saved data
     [Serializable]
-    public class PPRPlayerUpgradeInventoryData
+    public class PPRPlayerUpgradeInventoryData : IPPRSaveData
     {
         public List<PPRUpgradeableData> Upgradeables = new();
     }

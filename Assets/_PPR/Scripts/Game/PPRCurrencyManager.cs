@@ -11,6 +11,11 @@ namespace PPR.Game
         public PPRCurrencyManager()
         {
             PPRManager.Instance.EventManager.AddListener(PPREvents.currency_collected, OnCurrencyCollected);
+
+            PPRManager.Instance.SaveManager.Load<PPRPlayerCurrencyData>(delegate (PPRPlayerCurrencyData data)
+            {
+                PlayerCurrencyData = data ?? new PPRPlayerCurrencyData();
+            });
         }
 
         /// <summary>
@@ -45,6 +50,8 @@ namespace PPR.Game
         {
             PlayerCurrencyData.CurrencyByTag[tag] = amount;
             PPRManager.Instance.EventManager.InvokeEvent(PPREvents.currency_set, (tag, amount));
+
+            PPRManager.Instance.SaveManager.Save(PlayerCurrencyData); // Saves AT LEAST once a second due to the nature of the game
         }
 
         public void ChangeCurrencyByTagByAmount(CurrencyTags tag, int amount)
@@ -88,7 +95,7 @@ namespace PPR.Game
         }
     }
 
-    public class PPRPlayerCurrencyData
+    public class PPRPlayerCurrencyData : IPPRSaveData
     {
         public Dictionary<CurrencyTags, int> CurrencyByTag = new();
     }

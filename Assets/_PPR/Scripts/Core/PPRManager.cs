@@ -9,6 +9,8 @@ namespace PPR.Core
         public PPREventManager EventManager;
         public PPRFactory FactoryManager;
         public PPRPoolManager PoolManager;
+        public PPRConfigManager ConfigManager;
+        public PPRSaveManager SaveManager;
 
         public PPRManager()
         {
@@ -23,6 +25,8 @@ namespace PPR.Core
             EventManager = new PPREventManager();
             FactoryManager = new PPRFactory();
             PoolManager = new PPRPoolManager();
+            ConfigManager = new PPRConfigManager();
+            SaveManager = new PPRSaveManager();
 
             onComplete.Invoke();
         }

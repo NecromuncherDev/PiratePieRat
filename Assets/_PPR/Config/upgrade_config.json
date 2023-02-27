@@ -1,0 +1,31 @@
+{
+    "UpgradableConfigs" : [
+        {
+            "UpgradableTypeID" : "RatPowerUpgrade",
+            "UpgradableLevelData": 
+            [
+                {
+                    "Level" : 1, 
+                    "CurrencyCost" : 0,
+                    "CurrencyTag" : "Pies",
+                    "Power" : 1
+                },{
+                    "Level" : 2, 
+                    "CurrencyCost" : 100,
+                    "CurrencyTag" : "Pies",
+                    "Power" : 2
+                },{
+                    "Level" : 3, 
+                    "CurrencyCost" : 1500,
+                    "CurrencyTag" : "Pies",
+                    "Power" : 5
+                },{
+                    "Level" : 4, 
+                    "CurrencyCost" : 50000,
+                    "CurrencyTag" : "Pies",
+                    "Power" : 15
+                }
+            ]
+        }
+    ]
+}

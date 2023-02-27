@@ -13,9 +13,9 @@ namespace PPR.Core
         public void Save(IPPRSaveData saveData)
         {
             var saveID = saveData.GetType().FullName;
-            Debug.Log(saveID);
+            //Debug.Log(saveID);
             var saveJson = JsonConvert.SerializeObject(saveData);
-            Debug.Log(saveJson);
+            //Debug.Log(saveJson);
 
             var path = $"{Application.persistentDataPath}/{saveID}.{SAVE_FILE_EXTENTION}";
 
@@ -36,8 +36,8 @@ namespace PPR.Core
             var saveJson = File.ReadAllText(path);
             var saveData = JsonConvert.DeserializeObject<T>(saveJson);
 
-            Debug.Log(saveID);
-            Debug.Log(saveJson);
+            //Debug.Log(saveID);
+            //Debug.Log(saveJson);
 
             onComplete.Invoke(saveData);
 

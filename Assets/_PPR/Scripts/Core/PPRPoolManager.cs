@@ -53,7 +53,7 @@ namespace PPR.Core
             {
                 if (pool.AvailablePoolables.TryDequeue(out PPRPoolable poolable))
                 {
-                    Debug.Log($"GetPoolable - {poolName}");
+                    //Debug.Log($"GetPoolable - {poolName}");
 
                     poolable.OnTakenFromPool();
 
@@ -66,12 +66,12 @@ namespace PPR.Core
                     // Create more
                 }
 
-                Debug.Log($"pool - {poolName} not enough poolables, used poolables {pool.UsedPoolables.Count}");
+                Debug.LogWarning($"pool - {poolName} not enough poolables, used poolables {pool.UsedPoolables.Count}");
 
                 return null;
             }
 
-            Debug.Log($"pool - {poolName} wasn't initialized");
+            Debug.LogError($"pool - {poolName} wasn't initialized");
             return null;
         }
 

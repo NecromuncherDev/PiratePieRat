@@ -9,7 +9,7 @@ namespace PPR.Game
     public class PPRUpgradeManager
     {
         public PPRPlayerUpgradeInventoryData PlayerUpgradeInventoryData; // Player saved data
-        public PPRUpgradeManagerConfig UpgradeConfig = new(); // From file. TODO: get from cloud
+        public PPRUpgradeManagerConfig UpgradeConfig; // From file. TODO: get from cloud
 
         // MockData
         // Load From Save Data On Device (Future)
@@ -58,7 +58,7 @@ namespace PPR.Game
         
         public PPRUpgradeableConfig GetPprUpgradeableConfigByID(UpgradeableTypeIDs typeID)
         {
-            PPRUpgradeableConfig upgradeableConfig = UpgradeConfig.UpgradeableConfigs.FirstOrDefault(upgradeable => upgradeable.UpgradeableID == typeID);
+            PPRUpgradeableConfig upgradeableConfig = UpgradeConfig.UpgradeableConfigs.FirstOrDefault(upgradeable => upgradeable.UpgradeableTypeID == typeID);
             return upgradeableConfig;
         }
 
@@ -100,7 +100,7 @@ namespace PPR.Game
     [Serializable]
     public class PPRUpgradeableConfig
     {
-        public UpgradeableTypeIDs UpgradeableID;
+        public UpgradeableTypeIDs UpgradeableTypeID;
         public List<PPRUpgradeableLevelData> UpgradeableLevelData;
     }
 
@@ -108,7 +108,7 @@ namespace PPR.Game
     [Serializable]
     public class PPRUpgradeManagerConfig
     {
-        public List<PPRUpgradeableConfig> UpgradeableConfigs;
+        public List<PPRUpgradeableConfig> UpgradeableConfigs = new();
     }
 
     // All player saved data

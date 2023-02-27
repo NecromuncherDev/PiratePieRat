@@ -95,11 +95,13 @@ namespace PPR.Game
         }
     }
 
+    [Serializable]
     public class PPRPlayerCurrencyData : IPPRSaveData
     {
         public Dictionary<CurrencyTags, int> CurrencyByTag = new();
     }
 
+    [Serializable]
     public enum CurrencyTags
     {
         NA = 0,

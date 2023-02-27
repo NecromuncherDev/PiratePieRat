@@ -27,7 +27,7 @@ namespace PPR.Game
 
         internal void SetAmount(int newAmount)
         {
-            currencyLabel.text = $"{newAmount}";
+            currencyLabel.text = newAmount.ToString("N0");
         }
     }
 }

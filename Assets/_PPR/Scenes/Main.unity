@@ -436,7 +436,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1979187024}
         m_TargetAssemblyTypeName: PPR.Game.PPRMainUIComponent, Game
         m_MethodName: OnUpgradePressed
         m_Mode: 1
@@ -1206,8 +1206,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf252c0a11eb45a4483682fb36dd40d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scorePoolConfig: {fileID: 11400000, guid: 97a8ffd9bba62bc419bf69eeb6cfeb5e, type: 2}
-  currencyTag: 1
 --- !u!135 &1442611129
 SphereCollider:
   m_ObjectHideFlags: 0

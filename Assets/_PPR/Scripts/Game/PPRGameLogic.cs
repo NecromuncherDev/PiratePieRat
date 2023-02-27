@@ -10,6 +10,8 @@ namespace PPR.Game
         public PPRCurrencyManager CurrencyManager;
         public PPRUpgradeManager UpgradeManager;
 
+        private PPRRatBasedPieGenerator ratPieGenerator;
+        
         public PPRGameLogic()
         {
             if (Instance != null)
@@ -22,6 +24,7 @@ namespace PPR.Game
         {
             CurrencyManager = new();
             UpgradeManager = new();
+            ratPieGenerator = new();
 
             onComplete.Invoke();
         }

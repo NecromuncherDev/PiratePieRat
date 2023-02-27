@@ -20,7 +20,7 @@ namespace PPR.Game
             {
                 Upgradeables = new List<PPRUpgradeableData>(){new PPRUpgradeableData
                     {
-                        UpgradeableTypeID = UpgradeableTypeIDs.ClickPowerUpgrade,
+                        UpgradeableTypeID = UpgradeableTypeIDs.RatPowerUpgrade,
                         CurrentLevel = 0
                     }
                 }
@@ -107,7 +107,7 @@ namespace PPR.Game
         {
             new PPRUpgradeableConfig
             {
-                UpgradeableID = UpgradeableTypeIDs.ClickPowerUpgrade,
+                UpgradeableID = UpgradeableTypeIDs.RatPowerUpgrade,
                 UpgradeableLevelData = new List<PPRUpgradeableLevelData>() 
                 {
                     new()
@@ -153,6 +153,6 @@ namespace PPR.Game
     [Serializable]
     public enum UpgradeableTypeIDs
     { 
-        ClickPowerUpgrade = 1,
+        RatPowerUpgrade = 1,
     }
 }

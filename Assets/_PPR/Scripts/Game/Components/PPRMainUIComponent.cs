@@ -5,7 +5,6 @@ namespace PPR.Game
 {
     public class PPRMainUIComponent : PPRLogicMonoBehaviour
     {
-
         private void OnEnable()
         {
             AddListener(PPREvents.currency_collected, OnCurrencySet);
@@ -23,7 +22,6 @@ namespace PPR.Game
             if (scoreEventData.Item1 == CurrencyTags.Pies)
             {
                 GeneratePopup(scoreEventData.Item2);
-                //scoreText.text = scoreEventData.Item2.ToString("N0");
             }
         }
 
@@ -44,7 +42,7 @@ namespace PPR.Game
 
         public void OnUpgradePressed()
         {
-            GameLogic.UpgradeManager.UpgradeItemByID(UpgradeableTypeIDs.ClickPowerUpgrade);
+            GameLogic.UpgradeManager.UpgradeItemByID(UpgradeableTypeIDs.RatPowerUpgrade);
         }
     }
 }

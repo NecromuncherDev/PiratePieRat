@@ -20,6 +20,7 @@ namespace PPR.Game
         {
             moveDir = (Vector2)obj;
             isMoving = true;
+            Debug.DrawLine(transform.position, transform.position + (Vector3)moveDir, Color.blue, 3f);
         }
 
         private void StopMove(object obj)

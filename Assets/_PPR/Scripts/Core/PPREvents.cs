@@ -13,6 +13,7 @@
         currency_crew_set = 12,
         currency_pies_set = 13,
         currency_cheese_set = 14,
+        currency_pies_per_second_set = 15,
 
         // Player Object 20-29
         player_object_awake = 20,

@@ -23,6 +23,8 @@ namespace PPR.Game
             Debug.DrawLine(transform.position, transform.position + (Vector3)moveDir, Color.blue, 3f);
         }
 
+
+
         private void StopMove(object obj)
         {
             isMoving = false;

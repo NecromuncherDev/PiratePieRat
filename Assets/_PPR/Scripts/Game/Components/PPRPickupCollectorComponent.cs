@@ -7,14 +7,16 @@ namespace PPR.Game
     {
         [SerializeField] private LayerMask pickupLayer;
 
-        private void OnCollisionEnter2D(Collision2D col)
+
+        //private void OnCollisionEnter2D(Collision2D col)
+        private void OnTriggerEnter2D(Collider2D col)
         {
             //if ((pickupLayer.value & (1 << col.transform.gameObject.layer)) > 0)
             //{
-                if (col.gameObject.TryGetComponent(out PPRPickupComponent pickup))
-                {
-                    pickup.CollectPickup();
-                }
+            if (col.gameObject.TryGetComponent(out PPRPickupComponent pickup))
+            {
+                pickup.CollectPickup();
+            }
             //}
         }
     }

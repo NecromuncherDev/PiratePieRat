@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "816360157643",
+    "project_id": "piratepierat-449d6",
+    "storage_bucket": "piratepierat-449d6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816360157643:android:731a4ae7ff54323c77c64e",
+        "android_client_info": {
+          "package_name": "com.byos.ppr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "816360157643-g2vcumj053bvtbte2cd741b2i009d2o6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDa8FTHzT87w-2Xz1-SSpW2eKwyX5F0ySQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "816360157643-g2vcumj053bvtbte2cd741b2i009d2o6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

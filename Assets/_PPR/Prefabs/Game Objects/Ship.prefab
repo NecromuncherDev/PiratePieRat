@@ -286,7 +286,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 5
+  m_Time: 2
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -317,7 +317,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 0.6462264, g: 0.96078897, b: 1, a: 1}
-      key1: {r: 0.20000002, g: 0.52156866, b: 0.9058824, a: 1}
+      key1: {r: 0.20000002, g: 0.52156866, b: 0.9058824, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}

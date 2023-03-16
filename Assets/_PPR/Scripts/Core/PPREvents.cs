@@ -28,5 +28,9 @@
         pickup_returned_to_pool = 32,
         pickup_collected = 33,
         pickup_destroyed = 34,
+
+        // Popups 40-49
+        on_popup_open = 40,
+        on_popup_close = 41,
     }
 }

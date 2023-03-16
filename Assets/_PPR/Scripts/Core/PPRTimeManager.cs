@@ -137,6 +137,21 @@ namespace PPR.Core
             activeAlarms.RemoveAll(x => x.ID == alarmID);
         }
 
+        public int GetLeftOverTime(OfflineTimeTypes timeType)
+        {
+            if (!pprOfflineTime.LeftOverTimes.ContainsKey(timeType))
+            {
+                return 0;
+            }
+
+            return pprOfflineTime.LeftOverTimes[timeType];
+        }
+
+        public void SetLeftOverTime(OfflineTimeTypes timeType, int timeAmount)
+        {
+            pprOfflineTime.LeftOverTimes[timeType] = timeAmount;
+        }
+
         ~PPRTimeManager()
         {
             isLooping = false;
@@ -167,5 +182,12 @@ namespace PPR.Core
     public class PPROfflineTime : IPPRSaveData
     {
         public DateTime LastCheck;
+        public Dictionary<OfflineTimeTypes, int> LeftOverTimes = new();
+    }
+
+    public enum OfflineTimeTypes
+    {
+        DailyBonus,
+        ExtraBonus
     }
 }

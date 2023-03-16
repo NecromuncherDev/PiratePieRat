@@ -2,10 +2,12 @@
 {
     public enum PPREvents
     {
-        // Scene Progression 0-9
+        // Game and Time Progression 0-9
         game_start_event = 0,
         game_stop_event = 1,
         scene_loading_operation_progressed = 2,
+        game_pause = 3,
+        offline_time_refreshed = 4,
 
         // Currency 10-19
         currency_set = 10,
@@ -20,7 +22,7 @@
         player_object_start_move = 21,
         player_object_stop_move = 22,
 
-        // Pickups and upgrades 30-39
+        // Pickups and Upgrades 30-39
         item_upgraded = 30,
         pickup_taken_from_pool = 31,
         pickup_returned_to_pool = 32,

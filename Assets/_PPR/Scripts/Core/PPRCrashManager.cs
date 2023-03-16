@@ -7,7 +7,7 @@ namespace PPR.Core
     {
         public PPRCrashManager()
         {
-            PPRDebug.Log($"HOGCrashManager");
+            PPRDebug.Log($"PPRCrashManager");
             Crashlytics.ReportUncaughtExceptionsAsFatal = true;
         }
 

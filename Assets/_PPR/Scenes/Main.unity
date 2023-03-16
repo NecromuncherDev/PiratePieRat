@@ -810,8 +810,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd4877787771a284f986cf8dfc90abbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingCrew: 50
-  startingPies: 1000
+  startingCrew: 1
+  startingPies: 0
 --- !u!1 &717389045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1665,6 +1665,10 @@ PrefabInstance:
     - target: {fileID: 4415432372184331505, guid: 72196e7b45cd6c4409b988d3cc06613e, type: 3}
       propertyPath: m_Name
       value: Crew Currency Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415432372679527280, guid: 72196e7b45cd6c4409b988d3cc06613e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4415432372679527287, guid: 72196e7b45cd6c4409b988d3cc06613e, type: 3}
       propertyPath: m_Sprite

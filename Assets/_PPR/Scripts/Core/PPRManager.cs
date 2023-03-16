@@ -13,6 +13,7 @@ namespace PPR.Core
         public PPRConfigManager ConfigManager;  
         public PPRSaveManager SaveManager;
         public PPRCrashManager CrashManager;
+        public PPRTimeManager TimerManager;
 
         public Action OnInitAction;
 
@@ -69,8 +70,10 @@ namespace PPR.Core
             SaveManager = new PPRSaveManager();
             PPRDebug.Log($"After PPRSaveManager");
 
-            PPRDebug.Log($"Before Config Manager");
+            TimerManager = new PPRTimeManager();
+            PPRDebug.Log($"After TimeManager");
 
+            PPRDebug.Log($"Before Config Manager");
             ConfigManager = new PPRConfigManager(delegate
             {
                 OnInitAction.Invoke();

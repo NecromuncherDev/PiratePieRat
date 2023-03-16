@@ -12,7 +12,7 @@ namespace PPR.Core
 
         public PPRPoolManager()
         {
-            rootPools = new GameObject().transform;
+            rootPools = new GameObject("Pools Parent").transform;
             Object.DontDestroyOnLoad(rootPools);
         }
 

@@ -1,0 +1,13 @@
+#NOTRIM#
+#NOTRIM#
+namespace PPR.UNASSIGNED
+{
+	public class #SCRIPTNAME#
+	{
+		// Constructor
+		public #SCRIPTNAME#()
+		{
+			#NOTRIM#
+		}
+	}
+}

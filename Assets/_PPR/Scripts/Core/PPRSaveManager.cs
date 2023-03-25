@@ -46,7 +46,7 @@ namespace PPR.Core
         public bool HasData<T>() where T : IPPRSaveData
         {
             var saveID = typeof(T).FullName;
-            var path = $"{Application.persistentDataPath}/{saveID}.hogSave";
+            var path = $"{Application.persistentDataPath}/{saveID}.{SAVE_FILE_EXTENTION}";
             return File.Exists(path);
         }
     }

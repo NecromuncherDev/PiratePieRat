@@ -1,0 +1,7 @@
+namespace PPR.UNASSIGNED
+{
+	public interface #SCRIPTNAME#
+	{
+		#NOTRIM#
+	}
+}

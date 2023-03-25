@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 
 namespace PPR.Core
 {
-    public class PPRGameLoader : PPRMonoBehaviour
+    public class PPRLoader : PPRMonoBehaviour
     {
         [SerializeField] private int gameSceneID;
-        [SerializeField] private PPRGameLoaderBase gameLogicLoader;
+        [SerializeField] private PPRLoaderBase gameLogicLoader;
 
         private PPRManager manager;
 

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace PPR.Game
 {
-    public class PPRGameLogicLoader : PPRGameLoaderBase
+    public class PPRGameLoader : PPRLoaderBase
     {
         [SerializeField] private List<PPRPoolConfiguration> pools = new();
 

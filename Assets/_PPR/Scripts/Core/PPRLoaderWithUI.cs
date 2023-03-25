@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace PPR.Core
 {
-    public class PPRGameLoaderWithUI : PPRGameLoader
+    public class PPRLoaderWithUI : PPRLoader
     {
         [SerializeField] private GameObject loadingScrene;
         [SerializeField] private Image loadingBarFill;

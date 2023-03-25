@@ -9,6 +9,7 @@ namespace PPR.Game
 
         public PPRCurrencyManager CurrencyManager;
         public PPRUpgradeManager UpgradeManager;
+        public PPRStoreManager StoreManager;
 
         private PPRRatBasedPieGenerator ratPieGenerator;
         
@@ -24,6 +25,7 @@ namespace PPR.Game
         {
             CurrencyManager = new();
             UpgradeManager = new();
+            StoreManager = new();
             ratPieGenerator = new();
 
             onComplete.Invoke();

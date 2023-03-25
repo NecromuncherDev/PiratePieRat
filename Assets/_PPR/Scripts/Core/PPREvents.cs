@@ -32,5 +32,8 @@
         // Popups 40-49
         on_popup_open = 40,
         on_popup_close = 41,
+
+        // Purchases 50-59
+        purchase_complete = 50,
     }
 }

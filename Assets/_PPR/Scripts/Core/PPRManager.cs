@@ -12,8 +12,10 @@ namespace PPR.Core
         public PPRPoolManager PoolManager;
         public PPRConfigManager ConfigManager;  
         public PPRSaveManager SaveManager;
+        public PPRAnalyticsManager AnalyticsManager;
         public PPRCrashManager CrashManager;
         public PPRTimeManager TimerManager;
+        public PPRInAppPurchace PurchaseManager;
 
         public Action OnInitAction;
 
@@ -58,6 +60,9 @@ namespace PPR.Core
             CrashManager = new PPRCrashManager();
             PPRDebug.Log($"After CrashManager");
 
+            AnalyticsManager = new PPRAnalyticsManager();
+            PPRDebug.Log($"After AnalyticsManager");
+
             EventManager = new PPREventManager();
             PPRDebug.Log($"After HOGEventsManager");
 
@@ -72,6 +77,9 @@ namespace PPR.Core
 
             TimerManager = new PPRTimeManager();
             PPRDebug.Log($"After TimeManager");
+
+            PurchaseManager = new PPRInAppPurchace();
+            PPRDebug.Log($"After PurchaseManager");
 
             PPRDebug.Log($"Before Config Manager");
             ConfigManager = new PPRConfigManager(delegate

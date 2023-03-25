@@ -11,12 +11,12 @@ namespace PPR.Core
             SetUserID();
         }
 
-        public void ReportEvent(PPREventType eventType)
+        public void ReportEvent(PPREvents eventType)
         {
-            ReportEvent(eventType, new Dictionary<HOGDataKeys, object>());
+            ReportEvent(eventType, new Dictionary<PPRDataKeys, object>());
         }
 
-        public void ReportEvent(PPREventType eventType, Dictionary<HOGDataKeys, object> data)
+        public void ReportEvent(PPREvents eventType, Dictionary<PPRDataKeys, object> data)
         {
             var paramsData = new List<Parameter>();
 
@@ -70,20 +70,12 @@ namespace PPR.Core
         }
     }
 
-    public enum PPREventType
-    {
-        app_loaded,
-        upgrade_item,
-        try_upgrade_out_of,
-        popup_open,
-        popup_impression,
-        popup_close
-    }
-
-    public enum HOGDataKeys
+    public enum PPRDataKeys
     {
         type_id,
         upgrade_level,
-        popup_type
+        popup_type,
+        product_id,
+        product_receipt
     }
 }

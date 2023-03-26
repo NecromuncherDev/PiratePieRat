@@ -759,6 +759,7 @@ GameObject:
   - component: {fileID: 585852812}
   - component: {fileID: 585852811}
   - component: {fileID: 585852813}
+  - component: {fileID: 585852814}
   m_Layer: 0
   m_Name: Tester
   m_TagString: Untagged
@@ -812,6 +813,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingCrew: 1
   startingPies: 0
+--- !u!114 &585852814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585852810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdf2fdd86d830224c9210891e485313c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &717389045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1172,7 +1185,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1442611127}
   - component: {fileID: 1442611129}
-  - component: {fileID: 1442611128}
   m_Layer: 0
   m_Name: MainClickerHolder
   m_TagString: Untagged
@@ -1196,18 +1208,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1442611128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1442611126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf252c0a11eb45a4483682fb36dd40d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &1442611129
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -29,9 +29,12 @@
         pickup_collected = 33,
         pickup_destroyed = 34,
 
-        // Popups 40-49
+        // Popups and Ads 40-49
         on_popup_open = 40,
         on_popup_close = 41,
+        ad_show_start = 42,
+        ad_show_complete = 43,
+        ad_show_click = 44,
 
         // Purchases 50-59
         purchase_complete = 50,

@@ -17,7 +17,7 @@ UnityConnectSettings:
     m_LogBufferSize: 10
     m_CaptureEditorExceptions: 1
   UnityPurchasingSettings:
-    m_Enabled: 0
+    m_Enabled: 1
     m_TestMode: 0
   UnityAnalyticsSettings:
     m_Enabled: 0
@@ -25,12 +25,14 @@ UnityConnectSettings:
     m_InitializeOnStartup: 1
     m_PackageRequiringCoreStatsPresent: 0
   UnityAdsSettings:
-    m_Enabled: 0
+    m_Enabled: 1
     m_InitializeOnStartup: 1
     m_TestMode: 0
     m_IosGameId: 
     m_AndroidGameId: 
-    m_GameIds: {}
-    m_GameId: 
+    m_GameIds:
+      AndroidPlayer: 5215653
+      iPhonePlayer: 5215652
+    m_GameId: 5215653
   PerformanceReportingSettings:
     m_Enabled: 0

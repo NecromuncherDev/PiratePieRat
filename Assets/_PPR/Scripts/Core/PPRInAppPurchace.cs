@@ -4,6 +4,7 @@ using UnityEngine.Purchasing;
 
 namespace PPR.Core
 {
+
     public class PPRInAppPurchace : IStoreListener
     {
         private IStoreController storeController;

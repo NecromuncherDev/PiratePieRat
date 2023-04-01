@@ -14,7 +14,8 @@ namespace PPR.Core
         protected void Start()
         {
             DontDestroyOnLoad(gameObject);
-            LoadScene(gameSceneID);
+            WaitForSeconds(2, () => LoadScene(gameSceneID));
+            //LoadScene(gameSceneID);
         }
 
         public void LoadScene(int sceneID)

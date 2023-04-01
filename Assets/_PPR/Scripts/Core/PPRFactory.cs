@@ -7,6 +7,11 @@ namespace PPR.Core
 {
     public class PPRFactory
     {
+        public void CreateAsync<T>(string name, Vector3 pos, Action<T> onCreated) where T : Object
+        {
+            
+        }
+
         public void CreateAsync<T>(T origin, Vector3 pos, Action<T> onCreated) where T : Object
         {
             var clone = Object.Instantiate(origin, pos, Quaternion.identity);

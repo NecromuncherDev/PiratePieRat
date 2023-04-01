@@ -17,10 +17,14 @@
         currency_cheese_set = 14,
         currency_pies_per_second_set = 15,
 
-        // Player Object 20-29
+        // Player and Combat 20-29
         player_object_awake = 20,
         player_object_start_move = 21,
         player_object_stop_move = 22,
+        enemy_encountered = 23,
+        combat_initiated = 24,
+        combat_player_win = 25,
+        combat_player_lose = 26,
 
         // Pickups and Upgrades 30-39
         item_upgraded = 30,

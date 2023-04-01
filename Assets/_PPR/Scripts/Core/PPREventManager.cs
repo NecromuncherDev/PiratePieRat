@@ -32,7 +32,7 @@ namespace PPR.Core
             }
         }
 
-        public void InvokeEvent(PPREvents eventName, object obj)
+        public void InvokeEvent(PPREvents eventName, object obj = null)
         {
             if (activeListeners.TryGetValue(eventName, out var listOfEvents))
             {

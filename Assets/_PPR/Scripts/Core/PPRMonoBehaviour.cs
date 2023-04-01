@@ -34,10 +34,5 @@ namespace PPR.Core
             yield return null;
             onComplete?.Invoke();
         }
-
-        //protected virtual void Awake()
-        //{
-        //    ObjectID = $"{gameObject.name.Replace(' ', '_')}-{UnityEngine.Random.Range(0, ushort.MaxValue)}";
-        //}
     }
 }

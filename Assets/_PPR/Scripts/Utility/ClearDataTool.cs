@@ -6,7 +6,7 @@ namespace PPR.Util
 {
 	public class ClearDataTool
     {
-        [MenuItem("Tools/ClearData")]
+        [MenuItem("Tools/Clear Data Tool")]
         public static void ClearAllDataTool()
         {
             var path = Application.persistentDataPath;
@@ -14,7 +14,8 @@ namespace PPR.Util
 
             foreach (var file in files)
             {
-                if (file.Contains("PPR"))
+                Debug.Log(file);
+                if (file.Contains(".pprSave"))
                 {
                     File.Delete(file);
                 }

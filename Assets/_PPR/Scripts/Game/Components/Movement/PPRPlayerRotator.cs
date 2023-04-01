@@ -18,7 +18,7 @@ namespace PPR.Game
 
         private void RotateToDirection(Vector2 dir)
         {
-            transform.right = dir;
+            transform.DOLookAt2D(dir, 0.2f);
         }
 
         private void OnDisable()

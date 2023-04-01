@@ -35,7 +35,7 @@ namespace PPR.Game // TODO: Move to Core.Test
             while (!ct.IsCancellationRequested)
             {
                 SpawnRandomPickup();
-                await Task.Delay((int)(spawnInterveal * 1000));
+                await Task.Delay(spawnInterveal.SecToMilli());
             }
         }
 

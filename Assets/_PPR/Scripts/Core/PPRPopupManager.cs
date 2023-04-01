@@ -6,34 +6,34 @@ namespace PPR.Core
 {
     public class PPRPopupManager
     {
-        public List<PPRPopupData> PopupDatas = new();
+        public List<PPRPopupData> PopupsData = new();
         public void AddPopupToQueue(PPRPopupData popupData)
         {
-            PopupDatas.Add(popupData);
+            PopupsData.Add(popupData);
             TryShowNextPopup();
         }
 
         public void TryShowNextPopup()
         {
-            if (PopupDatas.Count <= 0)
+            if (PopupsData.Count <= 0)
             {
                 return;
             }
 
             SortPopups();
-            OpenPopup(PopupDatas[0]);
+            OpenPopup(PopupsData[0]);
         }
 
         public void SortPopups()
         {
-            PopupDatas = PopupDatas.OrderBy(x => x.Priority).ToList();
+            PopupsData = PopupsData.OrderBy(x => x.Priority).ToList();
         }
 
-        public void OpenPopup(PPRPopupData hogPopupData)
+        public void OpenPopup(PPRPopupData popupData)
         {
             //Invoke popup event open
-            hogPopupData.OnPopupClose += OnClosePopup;
-            PopupDatas.Remove(hogPopupData);
+            popupData.OnPopupClose += OnClosePopup;
+            PopupsData.Remove(popupData);
         }
 
         public void OnClosePopup()

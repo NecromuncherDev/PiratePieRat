@@ -61,6 +61,12 @@ namespace PPR.Core
             CrashManager = new PPRCrashManager();
             PPRDebug.Log($"After CrashManager");
 
+            PPRDebug.Log($"Before Config Manager");
+            ConfigManager = new PPRConfigManager(delegate
+            {
+                OnInitAction.Invoke();
+            });
+
             AnalyticsManager = new PPRAnalyticsManager();
             PPRDebug.Log($"After AnalyticsManager");
 
@@ -84,12 +90,6 @@ namespace PPR.Core
 
             AdManager = new PPRAdManager();
             PPRDebug.Log($"After AdManager");
-
-            PPRDebug.Log($"Before Config Manager");
-            ConfigManager = new PPRConfigManager(delegate
-            {
-                OnInitAction.Invoke();
-            });
         }
     }
 

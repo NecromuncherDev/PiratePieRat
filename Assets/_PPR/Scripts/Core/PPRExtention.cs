@@ -1,8 +1,10 @@
 ﻿using System;
-using PPR.Core;
+using System.Threading.Tasks;
 using UnityEngine;
+using Random = UnityEngine.Random;
+using DG.Tweening;
 
-namespace PPR.Game
+namespace PPR.Core
 {
     public static class PPRExtention
     {
@@ -32,6 +34,22 @@ namespace PPR.Game
         public static int MinToSeconds(this int min)
         {
             return min * 60;
+        }
+
+        public static T GetRandomFromArray<T>(this T[] array)
+        {
+            return array[Random.Range(0, array.Length)];
+        }
+
+        public static int SecToMilli(this float seconds)
+        {
+            return (int)(seconds * 1000);
+        }
+
+        public static Tweener DOLookAt2D(this Transform transform, Vector2 dir, float duration)
+        {
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            return transform.DORotate(new Vector3(0, 0, angle), duration, RotateMode.Fast);
         }
     }
 }

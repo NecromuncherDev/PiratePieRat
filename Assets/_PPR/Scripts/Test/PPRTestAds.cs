@@ -16,7 +16,7 @@ namespace PPR.Test
 
         private async void WaitShowAd(float delay)
         {
-            await Task.Delay((int)(delay * 1000));
+            await Task.Delay(delay.SecToMilli());
             PPRManager.Instance.AdManager.ShowAdStandard(null);
         }
     }

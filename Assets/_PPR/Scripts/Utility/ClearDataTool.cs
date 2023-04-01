@@ -15,7 +15,7 @@ namespace PPR.Util
             foreach (var file in files)
             {
                 Debug.Log(file);
-                if (file.Contains(".pprSave"))
+                if (file.Contains("PPR"))
                 {
                     File.Delete(file);
                 }

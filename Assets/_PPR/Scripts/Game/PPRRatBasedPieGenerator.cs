@@ -18,8 +18,8 @@ namespace PPR.Game
         private int piesPerSecond = 0; // TODO: Load this from save
         private int crewCount = 0;
         private int ratPower = 0;
-        private CancellationTokenSource tokenSource = new();
-        private CancellationToken ct;
+
+        private bool isGenerating = false;
 
         public PPRRatBasedPieGenerator()
         {
@@ -70,20 +70,22 @@ namespace PPR.Game
 
         private async void StartGeneratePies(object obj)
         {
-            ct = tokenSource.Token;
+            isGenerating = true;
 
-            while (!ct.IsCancellationRequested)
+            while (isGenerating)
             {
                 if (piesPerSecond > 0)
                     PPRManager.Instance.EventManager.InvokeEvent(PPREvents.currency_collected, (CurrencyTags.Pies, piesPerSecond));
 
                 await Task.Delay(1000); // 1 second
             }
+
+            PPRDebug.Log("Done generating pies");
         }
 
         private void StopGeneratePies(object obj)
         {
-            tokenSource.Cancel();
+            isGenerating = false;
         }
 
         ~PPRRatBasedPieGenerator()

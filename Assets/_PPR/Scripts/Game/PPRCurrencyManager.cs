@@ -86,7 +86,6 @@ namespace PPR.Game
         {
             var data = ((CurrencyTags, int))obj;
             ChangeCurrencyByTagByAmount(data.Item1, data.Item2);
-
         }
 
         ~PPRCurrencyManager()

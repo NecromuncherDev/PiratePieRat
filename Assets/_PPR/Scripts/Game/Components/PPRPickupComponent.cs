@@ -11,8 +11,6 @@ namespace PPR.Game
         /// </summary>
         public override void OnTakenFromPool()
         {
-            OnPickupCreated(this);
-
             base.OnTakenFromPool();
             Manager.EventManager.InvokeEvent(PPREvents.pickup_taken_from_pool, this);
         }
@@ -26,11 +24,6 @@ namespace PPR.Game
         {
             transform.position = Vector3.zero;
             base.OnReturnedToPool();
-        }
-
-        protected virtual void OnPickupCreated(object obj)
-        {
-            //transform.position = Random.insideUnitCircle;
         }
 
         protected virtual void OnPickupCollected(object obj)

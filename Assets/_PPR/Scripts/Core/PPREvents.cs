@@ -32,6 +32,7 @@
         pickup_returned_to_pool = 32,
         pickup_collected = 33,
         pickup_destroyed = 34,
+        pickup_created = 35,
 
         // Popups and Ads 40-49
         on_popup_open = 40,

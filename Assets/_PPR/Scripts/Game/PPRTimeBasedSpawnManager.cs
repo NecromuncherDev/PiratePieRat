@@ -55,7 +55,7 @@ namespace PPR.Game // TODO: Move to Core.Test
                 // Spawn from random pool in pickupPools
                 var stranded = Manager.PoolManager.GetPoolable(pickupPools[Random.Range(0, pickupPools.Count)]);
                 stranded.gameObject.transform.position = GeneratePickupSpawnPoint();
-
+                InvokeEvent(PPREvents.pickup_created, stranded.gameObject);
                 currentSpawned++;
             }
         }

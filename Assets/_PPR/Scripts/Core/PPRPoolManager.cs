@@ -120,5 +120,6 @@ namespace PPR.Core
         RatCrate = 4,
         RatStranded = 5, 
         RatCrew = 6,
+        MapMarker = 7,
     }
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 
 namespace PPR.Core
 {
-
     public class PPRSaveManager
     {
         private const string SAVE_FILE_EXTENTION = "pprSave";

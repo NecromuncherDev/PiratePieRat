@@ -10,9 +10,11 @@ namespace PPR.Game // TODO: Move to Core.Test
     {
         [SerializeField] private List<PoolNames> pickupPools = new();
         [SerializeField] private float spawnInterveal = 5f;
-        [SerializeField] private float spawnRadius = 3f;
+        [SerializeField] private float spawnRadiusMin = 3f;
+        [SerializeField] private float spawnRadiusMax = 3f;
         [SerializeField] private int maxSpawned = 15;
-        [SerializeField] private int currentSpawned = 0;
+        
+        private int currentSpawned = 0;
 
         CancellationTokenSource tokenSource = new();
         CancellationToken ct;
@@ -64,7 +66,7 @@ namespace PPR.Game // TODO: Move to Core.Test
         {
             var pos = (Camera.main.transform.position) -
                       (Vector3.forward * Camera.main.transform.position.z) +
-                      (Vector3)Random.insideUnitCircle * spawnRadius;
+                      (Vector3)Random.insideUnitCircle.normalized * Random.Range(spawnRadiusMin, spawnRadiusMax);
             return pos;
         }
 

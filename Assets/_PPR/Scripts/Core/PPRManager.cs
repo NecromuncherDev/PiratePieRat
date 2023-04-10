@@ -10,7 +10,8 @@ namespace PPR.Core
         public PPREventManager EventManager;
         public PPRFactory FactoryManager;
         public PPRPoolManager PoolManager;
-        public PPRConfigManager ConfigManager;  
+        public PPRConfigManager ConfigManager;
+        public PPRInfoManager InfoManager;
         public PPRSaveManager SaveManager;
         public PPRAnalyticsManager AnalyticsManager;
         public PPRCrashManager CrashManager;
@@ -39,7 +40,8 @@ namespace PPR.Core
 
         public void InitFirebase(Action onComplete)
         {
-            Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task => {
+            Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
+            {
                 var dependencyStatus = task.Result;
                 if (dependencyStatus == Firebase.DependencyStatus.Available)
                 {
@@ -64,35 +66,38 @@ namespace PPR.Core
             PPRDebug.Log($"Before Config Manager");
             ConfigManager = new PPRConfigManager(delegate
             {
-                OnInitAction.Invoke();
+                AnalyticsManager = new PPRAnalyticsManager();
+                PPRDebug.Log($"After AnalyticsManager");
+
+                EventManager = new PPREventManager();
+                PPRDebug.Log($"After HOGEventsManager");
+
+                FactoryManager = new PPRFactory();
+                PPRDebug.Log($"After HOGFactoryManager");
+
+                PoolManager = new PPRPoolManager();
+                PPRDebug.Log($"After PPRPoolManager");
+
+                SaveManager = new PPRSaveManager();
+                PPRDebug.Log($"After PPRSaveManager");
+
+                TimerManager = new PPRTimeManager();
+                PPRDebug.Log($"After TimeManager");
+
+                PurchaseManager = new PPRInAppPurchace();
+                PPRDebug.Log($"After PurchaseManager");
+
+                AdManager = new PPRAdManager();
+                PPRDebug.Log($"After AdManager");
+
+                PPRDebug.Log($"Before Info Manager");
+                InfoManager = new PPRInfoManager(delegate
+                {
+                    OnInitAction.Invoke();
+                });
             });
-
-            AnalyticsManager = new PPRAnalyticsManager();
-            PPRDebug.Log($"After AnalyticsManager");
-
-            EventManager = new PPREventManager();
-            PPRDebug.Log($"After HOGEventsManager");
-
-            FactoryManager = new PPRFactory();
-            PPRDebug.Log($"After HOGFactoryManager");
-
-            PoolManager = new PPRPoolManager();
-            PPRDebug.Log($"After PPRPoolManager");
-
-            SaveManager = new PPRSaveManager();
-            PPRDebug.Log($"After PPRSaveManager");
-
-            TimerManager = new PPRTimeManager();
-            PPRDebug.Log($"After TimeManager");
-
-            PurchaseManager = new PPRInAppPurchace();
-            PPRDebug.Log($"After PurchaseManager");
-
-            AdManager = new PPRAdManager();
-            PPRDebug.Log($"After AdManager");
         }
     }
-
     public interface IPPRBaseManager
     {
         public void LoadManager(Action onComplete);

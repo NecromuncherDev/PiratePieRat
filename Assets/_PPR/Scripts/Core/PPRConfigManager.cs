@@ -45,11 +45,16 @@ namespace PPR.Core
             OnInit.Invoke();
         }
 
-        public void GetConfigAsync<T>(string configID, Action<T> onComplete)
+        public async void GetConfigAsync<T>(string configID, Action<T> onComplete)
         {
             PPRDebug.Log($"GetConfigAsync {configID}");
 
-            var saveJson = FirebaseRemoteConfig.DefaultInstance.GetValue(configID).StringValue;
+            string saveJson = null;
+
+            await Task.Run(() =>
+            {
+                saveJson = FirebaseRemoteConfig.DefaultInstance.GetValue(configID).StringValue;
+            });
 
             var saveData = JsonConvert.DeserializeObject<T>(saveJson);
 

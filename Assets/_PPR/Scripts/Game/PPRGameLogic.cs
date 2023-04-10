@@ -28,7 +28,6 @@ namespace PPR.Game
             UpgradeManager = new();
             StoreManager = new();
             MonoManager = new();
-            ratPieGenerator = new();
 
             onComplete.Invoke();
         }

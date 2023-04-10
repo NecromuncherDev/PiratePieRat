@@ -25,7 +25,7 @@ namespace PPR.Game
         private void GiveBonusAccordingToTimePassed(int timePassed)
         {
             var returnBonus = timePassed / 180; // Once every 3 minutes
-            GameLogic.CurrencyManager.ChangeCurrencyByTagByAmount(CurrencyTags.Pies, returnBonus); // Gaining Pies (specifically)
+            GameLogic.CurrencyManager.ChangeCurrencyByTagByAmount(CurrencyTags.Plastic, returnBonus); // Gaining Pies (specifically)
         }
     }
 }

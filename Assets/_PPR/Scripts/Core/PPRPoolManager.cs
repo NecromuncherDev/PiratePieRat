@@ -115,11 +115,11 @@ namespace PPR.Core
     {
         NA = 0,
         ScoreToast = 1,
-        PieThrow = 2,
-        PieCrate = 3,
-        RatCrate = 4,
-        RatStranded = 5, 
-        RatCrew = 6,
+        PickupMetal = 2,
+        PickupPlastic = 3,
+        PickupWood = 4,
+        PickupTrashHeap = 5, 
+        // = 6
         MapMarker = 7,
     }
 }

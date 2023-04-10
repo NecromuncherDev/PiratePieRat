@@ -12,9 +12,9 @@
         // Currency 10-19
         currency_set = 10,
         currency_collected = 11,
-        currency_crew_set = 12,
-        currency_pies_set = 13,
-        currency_cheese_set = 14,
+        currency_metal_set = 12,
+        currency_plastic_set = 13,
+        currency_wood_set = 14,
         currency_pies_per_second_set = 15,
 
         // Player and Combat 20-29

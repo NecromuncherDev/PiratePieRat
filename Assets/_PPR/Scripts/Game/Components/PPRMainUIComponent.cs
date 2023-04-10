@@ -1,4 +1,5 @@
 ﻿using PPR.Core;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace PPR.Game
@@ -17,11 +18,11 @@ namespace PPR.Game
 
         private void OnCurrencySet(object obj)
         {
-            var scoreEventData = ((CurrencyTags, int))obj;
+            var scoreEventData = (Dictionary<CurrencyTags, int>)obj;
 
-            if (scoreEventData.Item1 == CurrencyTags.Pies)
+            if (scoreEventData.ContainsKey(CurrencyTags.Plastic))
             {
-                GeneratePopup(scoreEventData.Item2);
+                GeneratePopup(scoreEventData[CurrencyTags.Plastic]);
             }
         }
 

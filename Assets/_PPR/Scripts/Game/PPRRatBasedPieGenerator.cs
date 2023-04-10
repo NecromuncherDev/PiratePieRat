@@ -23,10 +23,10 @@ namespace PPR.Game
 
         public PPRRatBasedPieGenerator()
         {
-            PPRManager.Instance.EventManager.AddListener(PPREvents.game_start_event, StartGeneratePies); // Could be loading based bug
+            // PPRManager.Instance.EventManager.AddListener(PPREvents.game_start_event, StartGeneratePies); // Could be loading based bug
             PPRManager.Instance.EventManager.AddListener(PPREvents.game_stop_event, StopGeneratePies);
 
-            PPRManager.Instance.EventManager.AddListener(PPREvents.currency_crew_set, UpdatePiesPerSecondByCrew);
+            PPRManager.Instance.EventManager.AddListener(PPREvents.currency_metal_set, UpdatePiesPerSecondByCrew);
             PPRManager.Instance.EventManager.AddListener(PPREvents.item_upgraded, UpdatePiesPerSecondByPower);
 
             ratPower = GetRatPowerFromUpgradableConfig(); // Could be loading based bug
@@ -75,7 +75,7 @@ namespace PPR.Game
             while (isGenerating)
             {
                 if (piesPerSecond > 0)
-                    PPRManager.Instance.EventManager.InvokeEvent(PPREvents.currency_collected, (CurrencyTags.Pies, piesPerSecond));
+                    PPRManager.Instance.EventManager.InvokeEvent(PPREvents.currency_collected, (CurrencyTags.Plastic, piesPerSecond));
 
                 await Task.Delay(1000); // 1 second
             }
@@ -93,7 +93,7 @@ namespace PPR.Game
             PPRManager.Instance.EventManager.RemoveListener(PPREvents.game_start_event, StartGeneratePies);
             PPRManager.Instance.EventManager.RemoveListener(PPREvents.game_stop_event, StopGeneratePies);
 
-            PPRManager.Instance.EventManager.RemoveListener(PPREvents.currency_crew_set, UpdatePiesPerSecondByCrew);
+            PPRManager.Instance.EventManager.RemoveListener(PPREvents.currency_metal_set, UpdatePiesPerSecondByCrew);
             PPRManager.Instance.EventManager.RemoveListener(PPREvents.item_upgraded, UpdatePiesPerSecondByPower);
         }
     }

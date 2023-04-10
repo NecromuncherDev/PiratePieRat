@@ -1,5 +1,6 @@
 ﻿using PPR.Core;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace PPR.Game
 {
@@ -12,22 +13,25 @@ namespace PPR.Game
 
         private void OnCurrencySet(object obj)
         {
-            var currencyEventData = ((CurrencyTags, int))obj;
+            var currencyEventData = (Dictionary<CurrencyTags, int>)obj;
 
-            switch (currencyEventData.Item1)
+            foreach (var currency in currencyEventData)
             {
-                case CurrencyTags.Crew:
-                    InvokeEvent(PPREvents.currency_crew_set, currencyEventData.Item2);
-                    break;
-                case CurrencyTags.Pies:
-                    InvokeEvent(PPREvents.currency_pies_set, currencyEventData.Item2);
-                    break;
-                case CurrencyTags.Cheese:
-                    InvokeEvent(PPREvents.currency_cheese_set, currencyEventData.Item2);
-                    break;
-                default:
-                    Debug.LogError($"PPRHeadsUpDisplay - Unknown currency updated: {currencyEventData.Item1}");
-                    break;
+                switch (currency.Key)
+                {
+                    case CurrencyTags.Metal:
+                        InvokeEvent(PPREvents.currency_metal_set, currency.Value);
+                        break;
+                    case CurrencyTags.Plastic:
+                        InvokeEvent(PPREvents.currency_plastic_set, currency.Value);
+                        break;
+                    case CurrencyTags.Wood:
+                        InvokeEvent(PPREvents.currency_wood_set, currency.Value);
+                        break;
+                    default:
+                        Debug.LogError($"PPRHeadsUpDisplay - Unknown currency updated: {currency.Key}");
+                        break;
+                }
             }
 
             

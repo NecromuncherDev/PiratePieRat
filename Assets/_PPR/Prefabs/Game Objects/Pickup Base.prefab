@@ -99,8 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolName: 0
-  Amount: 0
-  Currency: 0
+  amountMin: 0
+  amountMax: 0
+  currencies: 
 --- !u!58 &-8165850815877721314
 CircleCollider2D:
   m_ObjectHideFlags: 0

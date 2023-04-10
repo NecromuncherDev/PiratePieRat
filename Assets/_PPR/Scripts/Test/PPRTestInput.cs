@@ -33,9 +33,9 @@ namespace PPR.Test
                         case PPREvents.scene_loading_operation_progressed:
                         case PPREvents.currency_set:
                         case PPREvents.currency_collected:
-                        case PPREvents.currency_crew_set:
-                        case PPREvents.currency_pies_set:
-                        case PPREvents.currency_cheese_set:
+                        case PPREvents.currency_metal_set:
+                        case PPREvents.currency_plastic_set:
+                        case PPREvents.currency_wood_set:
                         case PPREvents.player_object_awake:
                         case PPREvents.player_object_stop_move:
                         case PPREvents.item_upgraded:

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e81def13179054d41ae61c4f141edb7b, type: 3}
-  m_Name: Pool Pie Throw
+  m_Name: Pool Pickup Trash Heap
   m_EditorClassIdentifier: 
-  PoolableOriginial: {fileID: 0}
-  PoolName: 2
-  PoolInitialSize: 50
-  PoolMaxSize: 250
+  PoolableOriginial: {fileID: 2265119535041621657, guid: 6c637dbad78e7a74b8ded508a985d55b, type: 3}
+  PoolName: 5
+  PoolInitialSize: 30
+  PoolMaxSize: 100

@@ -12,7 +12,7 @@ namespace PPR.Game
         private void CollectCurrencyFromPickup(object obj)
         {
             var pickup = (PPRCurrencyPickupComponent)obj;
-            InvokeEvent(PPREvents.currency_collected, (pickup.Currency, pickup.Amount));
+            InvokeEvent(PPREvents.currency_collected, pickup.Payload);
         }
 
         private void OnDisable()

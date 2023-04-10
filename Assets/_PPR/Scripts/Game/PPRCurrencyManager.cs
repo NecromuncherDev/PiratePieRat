@@ -104,8 +104,8 @@ namespace PPR.Game
     public enum CurrencyTags
     {
         NA = 0,
-        Crew = 1,
-        Pies = 2,
-        Cheese = 3,
+        Metal = 1,
+        Plastic = 2,
+        Wood = 3,
     }
 }

@@ -16,7 +16,7 @@ namespace PPR.Game
 
             if (totalSeconds >= hours.HoursToSeconds())
             {
-                GameLogic.CurrencyManager.ChangeCurrencyByTagByAmount(CurrencyTags.Pies, 1000);
+                GameLogic.CurrencyManager.ChangeCurrencyByTagByAmount(CurrencyTags.Plastic, 1000);
                 var leftOver = totalSeconds - hours.HoursToSeconds();
                 Manager.TimerManager.SetLeftOverTime(OfflineTimeTypes.DailyBonus, Mathf.Min(leftOver / 2, leftOver));
             }

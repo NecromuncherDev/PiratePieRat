@@ -31,6 +31,22 @@ PrefabInstance:
       propertyPath: poolName
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2537601888628512152, guid: 8ac096b14b2896340b1b29bf95eff3d5, type: 3}
+      propertyPath: amountMax
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537601888628512152, guid: 8ac096b14b2896340b1b29bf95eff3d5, type: 3}
+      propertyPath: amountMin
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537601888628512152, guid: 8ac096b14b2896340b1b29bf95eff3d5, type: 3}
+      propertyPath: currencies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537601888628512152, guid: 8ac096b14b2896340b1b29bf95eff3d5, type: 3}
+      propertyPath: currencies.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4394031776827506186, guid: 8ac096b14b2896340b1b29bf95eff3d5, type: 3}
       propertyPath: m_Name
       value: Pickup Plastic

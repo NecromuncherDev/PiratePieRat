@@ -84,8 +84,11 @@ namespace PPR.Game
 
         private void OnCurrencyCollected(object obj)
         {
-            var data = ((CurrencyTags, int))obj;
-            ChangeCurrencyByTagByAmount(data.Item1, data.Item2);
+            var data = (Dictionary<CurrencyTags, int>)obj;
+            foreach (var item in data)
+            {
+                ChangeCurrencyByTagByAmount(item.Key, item.Value);
+            }
         }
 
         ~PPRCurrencyManager()

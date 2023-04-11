@@ -4,8 +4,10 @@ using UnityEngine;
 namespace PPR.Game
 {
     [RequireComponent(typeof(Collider2D))]
-    public class PPRPickupComponent : PPRPoolable
+    public class PPRPickupComponent : PPRTweenInOutComponent
     {
+        public bool isCollected = false;
+
         /// <summary>
         /// Method <c>OnTakenFromPool</c> is called when a poolable object is retrieved from the pool. 
         /// </summary>
@@ -38,7 +40,7 @@ namespace PPR.Game
             Manager.PoolManager.ReturnPoolable(this);
         }
 
-        public void CollectPickup()
+        public virtual void CollectPickup()
         {
             OnPickupCollected(this);
         }

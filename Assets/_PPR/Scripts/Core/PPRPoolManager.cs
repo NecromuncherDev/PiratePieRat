@@ -119,7 +119,7 @@ namespace PPR.Core
         PickupPlastic = 3,
         PickupWood = 4,
         PickupTrashHeap = 5, 
-        // = 6
+        TimerPickup = 6,
         MapMarker = 7,
     }
 }

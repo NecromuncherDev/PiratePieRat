@@ -33,7 +33,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2537601888628512152, guid: 8ac096b14b2896340b1b29bf95eff3d5, type: 3}
       propertyPath: amountMax
-      value: 25
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2537601888628512152, guid: 8ac096b14b2896340b1b29bf95eff3d5, type: 3}
       propertyPath: amountMin
@@ -136,6 +136,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolName: 0
+  tweenTimeIn: 1
+  tweenTimeOut: 1
+  scaleStart: 0
+  scaleEnd: 1
+  inCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  outCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  isCollected: 0
   amountMin: 0
   amountMax: 0
   currencies: 

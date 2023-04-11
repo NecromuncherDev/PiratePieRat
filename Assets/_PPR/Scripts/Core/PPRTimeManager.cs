@@ -117,7 +117,7 @@ namespace PPR.Core
             timerActions[intervalSeconds].RemoveAll(x => x.TimerAction == onTickAction);
         }
 
-        public int SetAlarm(int seconds, Action onAlarmAction)
+        public int SetAlarm(float seconds, Action onAlarmAction)
         {
             alarmCounter++;
 

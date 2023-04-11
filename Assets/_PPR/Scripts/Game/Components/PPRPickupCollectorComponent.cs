@@ -19,5 +19,13 @@ namespace PPR.Game
             }
             //}
         }
+
+        private void OnTriggerExit2D(Collider2D col)
+        {
+            if (col.gameObject.TryGetComponent(out PPRTimedPickupComponent pickup))
+            {
+                pickup.CancelPickup();
+            }
+        }
     }
 }

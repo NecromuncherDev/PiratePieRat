@@ -46,10 +46,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolName: 7
-  tweenTime: 0.33
+  tweenTimeIn: 0.5
+  tweenTimeOut: 0.2
   scaleStart: 0
   scaleEnd: 1
-  easeTypeMove: 23
+  inCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2.815653
+      outSlope: 2.815653
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.046004843
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -0.31206825
+      outSlope: -0.31206825
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.11622274
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  outCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2.815653
+      outSlope: 2.815653
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.046004843
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -0.31206825
+      outSlope: -0.31206825
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.11622274
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8148545264086224784
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ namespace PPR.Game
 
         private Dictionary<Vector3, (Transform, CompassMarkers)> compass = new();
 
-        private PPRTweenMapMarkerComponent createdObject;
+        private PPRTweenInOutComponent createdObject;
         Vector2 dir, dirFactored;
 
         private void Start()
@@ -50,7 +50,7 @@ namespace PPR.Game
 
         private void CreateCompassMarker(Vector3 position)
         {
-            createdObject = (PPRTweenMapMarkerComponent)Manager.PoolManager.GetPoolable(PoolNames.MapMarker);
+            createdObject = (PPRTweenInOutComponent)Manager.PoolManager.GetPoolable(PoolNames.MapMarker);
             compass[position] = (createdObject.transform, compass[position].Item2);
             createdObject.Init();
         }

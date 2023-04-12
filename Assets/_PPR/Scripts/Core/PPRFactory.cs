@@ -9,7 +9,9 @@ namespace PPR.Core
     {
         public void CreateAsync<T>(string name, Vector3 pos, Action<T> onCreated) where T : Object
         {
-            
+            var original = Resources.Load<T>(name);
+
+            CreateAsync(original, pos, onCreated);
         }
 
         public void CreateAsync<T>(T origin, Vector3 pos, Action<T> onCreated) where T : Object

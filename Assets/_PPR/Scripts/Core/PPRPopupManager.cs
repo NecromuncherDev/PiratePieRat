@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace PPR.Core
 {
@@ -31,20 +32,28 @@ namespace PPR.Core
 
         public void OpenPopup(PPRPopupData popupData)
         {
-            //Invoke popup event open
             popupData.OnPopupClose += OnClosePopup;
             PopupsData.Remove(popupData);
+
+            // Instantiate
+            PPRManager.Instance.FactoryManager.CreateAsync<PPRPopupComponentBase>(popupData.PopupType.ToString(), 
+                                                                              Vector3.zero, 
+                                                                              (PPRPopupComponentBase popupComponent) =>
+                                                                              {
+                                                                                  popupComponent.Init(popupData);
+                                                                              });
         }
 
         public void OnClosePopup()
         {
-            //Invoke popup event close
             TryShowNextPopup();
         }
     }
 
     public class PPRPopupData
     {
+        public Canvas Canvas;
+
         public int Priority;
         public PopupTypes PopupType;
 
@@ -56,6 +65,8 @@ namespace PPR.Core
 
     public enum PopupTypes
     {
-
+        WelcomePopup,
+        Store,
+        UpgradePopup,
     }
 }

@@ -7,17 +7,18 @@ namespace PPR.Core
     {
         public static PPRManager Instance;
 
+        public PPRAdManager AdManager;
+        public PPRAnalyticsManager AnalyticsManager;
+        public PPRConfigManager ConfigManager;
+        public PPRCrashManager CrashManager;
         public PPREventManager EventManager;
         public PPRFactory FactoryManager;
-        public PPRPoolManager PoolManager;
-        public PPRConfigManager ConfigManager;
-        public PPRInfoManager InfoManager;
-        public PPRSaveManager SaveManager;
-        public PPRAnalyticsManager AnalyticsManager;
-        public PPRCrashManager CrashManager;
-        public PPRTimeManager TimerManager;
         public PPRInAppPurchace PurchaseManager;
-        public PPRAdManager AdManager;
+        public PPRInfoManager InfoManager;
+        public PPRPoolManager PoolManager;
+        public PPRPopupManager PopupManager;
+        public PPRSaveManager SaveManager;
+        public PPRTimeManager TimerManager;
 
         public Action OnInitAction;
 
@@ -63,23 +64,26 @@ namespace PPR.Core
             CrashManager = new PPRCrashManager();
             PPRDebug.Log($"After CrashManager");
 
-            PPRDebug.Log($"Before Config Manager");
+            PPRDebug.Log($"Before ConfigManager");
             ConfigManager = new PPRConfigManager(delegate
             {
+                EventManager = new PPREventManager();
+                PPRDebug.Log($"After EventsManager");
+
                 AnalyticsManager = new PPRAnalyticsManager();
                 PPRDebug.Log($"After AnalyticsManager");
 
-                EventManager = new PPREventManager();
-                PPRDebug.Log($"After HOGEventsManager");
+                PopupManager = new PPRPopupManager();
+                PPRDebug.Log($"After PopupManager");
 
                 FactoryManager = new PPRFactory();
-                PPRDebug.Log($"After HOGFactoryManager");
+                PPRDebug.Log($"After FactoryManager");
 
                 PoolManager = new PPRPoolManager();
-                PPRDebug.Log($"After PPRPoolManager");
+                PPRDebug.Log($"After PoolManager");
 
                 SaveManager = new PPRSaveManager();
-                PPRDebug.Log($"After PPRSaveManager");
+                PPRDebug.Log($"After SaveManager");
 
                 TimerManager = new PPRTimeManager();
                 PPRDebug.Log($"After TimeManager");
@@ -90,7 +94,7 @@ namespace PPR.Core
                 AdManager = new PPRAdManager();
                 PPRDebug.Log($"After AdManager");
 
-                PPRDebug.Log($"Before Info Manager");
+                PPRDebug.Log($"Before InfoManager");
                 InfoManager = new PPRInfoManager(delegate
                 {
                     OnInitAction.Invoke();

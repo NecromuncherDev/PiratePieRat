@@ -26,7 +26,7 @@ namespace PPR.Test
             PPRManager.Instance.AdManager.ShowAdStandard(null);
         }
 
-        private void CheckResourceAd(object obj)
+        private async void CheckResourceAd(object obj)
         {
             var data = (Dictionary<CurrencyTags, int>)obj;
 
@@ -39,6 +39,8 @@ namespace PPR.Test
             {
                 adResourceCounter = 0;
                 adResourceLimit += 5;
+
+                await Task.Delay(5000);
                 PPRManager.Instance.AdManager.ShowAdStandard(null);
             }
         }

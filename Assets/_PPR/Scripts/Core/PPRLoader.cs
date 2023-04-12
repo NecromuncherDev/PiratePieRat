@@ -8,12 +8,15 @@ namespace PPR.Core
     {
         [SerializeField] private int gameSceneID;
         [SerializeField] private PPRLoaderBase gameLogicLoader;
+        [SerializeField] private Canvas popupCanvas;
 
         private PPRManager manager;
 
         protected void Start()
         {
             DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(popupCanvas.gameObject);
+
             WaitForSeconds(2, () => LoadScene(gameSceneID));
             //LoadScene(gameSceneID);
         }
@@ -33,6 +36,17 @@ namespace PPR.Core
                     AsyncOperation operation = SceneManager.LoadSceneAsync(sceneID);
                     await WaitForSceneLoad(operation);
                     InvokeEvent(PPREvents.game_start_event);
+
+                    var welcomePopup = new PPRPopupData
+                    {
+                        Canvas = popupCanvas,
+                        Priority = 0,
+                        PopupType = PopupTypes.WelcomePopup,
+                        GenericData = "<b>Welcome Sailor!</b>"
+                    };
+
+                    manager.PopupManager.AddPopupToQueue(welcomePopup);
+
                     Destroy(gameObject);
                 });
             });

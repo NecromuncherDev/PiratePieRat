@@ -7,8 +7,11 @@ namespace PPR.Game
 {
     public class PPRTweenScoreComponent : PPRPoolable
     {
-        [SerializeField] private TMP_Text scoreTMP;
+        [Header("References")]
+        [SerializeField] private TMP_Text currencyTMP;
+        [SerializeField] private SpriteRenderer currencyRenderer;
 
+        [Header("Tweening")]
         [SerializeField] private float tweenTime = 1f;
         [SerializeField] private Vector3 moveAmount = Vector3.up;
         [SerializeField] private float fadeTarget = 0f;
@@ -19,9 +22,11 @@ namespace PPR.Game
         [SerializeField] private Ease easeTypeMove = Ease.OutCubic;
         [SerializeField] private AnimationCurve fadeEase;
 
-        public void Init(int amount)
+        public void Init(int amount, Sprite sprite, float horizontalVariation = 0f)
         {
-            scoreTMP.text = $"+{amount:N0}";
+            currencyTMP.text = $"+{amount:N0}";
+            currencyRenderer.sprite = sprite;
+            moveAmount.x = horizontalVariation;
             DoAnimation();
         }
 
@@ -29,7 +34,9 @@ namespace PPR.Game
         {
             transform.localScale = scaleStart * Vector3.one;
 
-            scoreTMP.DOFade(fadeTarget, tweenTime).SetEase(fadeEase);
+            currencyTMP.DOFade(fadeTarget, tweenTime).SetEase(fadeEase);
+            currencyRenderer.DOFade(fadeTarget, tweenTime).SetEase(fadeEase);
+
             transform.DOLocalMove(transform.localPosition + moveAmount, tweenTime).SetEase(easeTypeMove);
             transform.DOScale(scaleEnd * Vector3.one, tweenTime).OnComplete(() =>
             {
@@ -39,9 +46,10 @@ namespace PPR.Game
 
         public override void OnReturnedToPool()
         {
-            var tempColor = scoreTMP.color;
+            var tempColor = currencyTMP.color;
             tempColor.a = 1;
-            scoreTMP.color = tempColor;
+            currencyTMP.color = tempColor;
+            currencyRenderer.color = tempColor;
             base.OnReturnedToPool();
         }
     }

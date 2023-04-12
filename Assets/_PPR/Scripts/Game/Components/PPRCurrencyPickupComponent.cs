@@ -25,6 +25,7 @@ namespace PPR.Game
             InitPayload();
             gatherDuration = totalPayloadSum; // TODO: Change to be configurable based on ship stats
 
+            transform.localScale = scaleStart * Vector3.one;
             transform.DOScale(scaleEnd * Vector3.one, tweenTimeIn)
                 .SetEase(inCurve)
                 .OnComplete(() => base.OnTakenFromPool());

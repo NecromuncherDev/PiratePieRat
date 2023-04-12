@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1aec1a52014a0442a5f0c9489ae010c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupPools: 030000000400000005000000
+  pickupPools: 02000000030000000400000005000000
   spawnInterveal: 5
   spawnRadiusMin: 5
   spawnRadiusMax: 15
@@ -753,12 +753,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe7b5ee57397b134da4970c2c51b5d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerCurrency: 1
+  triggerCurrency: 0
   shakeDuration: 0.1
   baseStrengthShake: 0.01
   shakeVibBase: 1
@@ -1535,6 +1535,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a569448587e43e40846df901fb442fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currencyImages:
+  - tag: 1
+    image: {fileID: 21300000, guid: a23382ada23b81b4d9611258d2982b96, type: 3}
+  - tag: 2
+    image: {fileID: 21300000, guid: 580906a3ae0a2854a972acc19016fbac, type: 3}
+  - tag: 3
+    image: {fileID: 21300000, guid: 57f751a906859504f9c1f6858b5fefb9, type: 3}
 --- !u!1001 &4415432371981695971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1678,6 +1685,10 @@ PrefabInstance:
     - target: {fileID: 4741615910315534347, guid: 1b6ff54149615ab4b8ecfcf12310e60a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5713510262273111241, guid: 1b6ff54149615ab4b8ecfcf12310e60a, type: 3}
+      propertyPath: moveSpeed
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 5713510262273111242, guid: 1b6ff54149615ab4b8ecfcf12310e60a, type: 3}
       propertyPath: m_RootOrder

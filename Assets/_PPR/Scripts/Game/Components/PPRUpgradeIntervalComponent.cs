@@ -25,7 +25,7 @@ namespace PPR.Game
 
             var scoreText = (PPRTweenScoreComponent)Manager.PoolManager.GetPoolable(PoolNames.ScoreToast);
             scoreText.transform.position = transform.position;
-            scoreText.Init(currencyUpAmount);
+            scoreText.Init(currencyUpAmount, null);
         }
     }
 }

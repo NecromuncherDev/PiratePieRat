@@ -16,7 +16,7 @@ namespace PPR.Game
         {
             isGatherCanceled = false;
             alarmID = Manager.TimerManager.SetAlarm(gatherDuration, VerifyCollect);
-            Debug.Log($"Waiting {gatherDuration} seconds to pickup...");
+            PPRDebug.Log($"Waiting {gatherDuration} seconds to pickup...");
 
             OpenTimer();
         }

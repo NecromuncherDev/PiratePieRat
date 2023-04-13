@@ -11,8 +11,6 @@ namespace PPR.Game
         public PPRUpgradeManager UpgradeManager;
         public PPRStoreManager StoreManager;
         public PPRMonoManager MonoManager;
-
-        private PPRRatBasedPieGenerator ratPieGenerator;
         
         public PPRGameLogic()
         {

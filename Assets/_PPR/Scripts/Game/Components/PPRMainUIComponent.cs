@@ -56,7 +56,7 @@ namespace PPR.Game
 
         public void OnUpgradePressed()
         {
-            GameLogic.UpgradeManager.UpgradeItemByID(UpgradeableTypeIDs.RatPowerUpgrade);
+            GameLogic.UpgradeManager.UpgradeItemByID(UpgradeableTypeIDs.RadarRange);
         }
     }
 }

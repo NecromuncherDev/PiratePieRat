@@ -8,12 +8,9 @@ namespace PPR.Game
 {
     public class PPRUpgradeManager
     {
-        public PPRPlayerUpgradeInventoryData PlayerUpgradeInventoryData; // Player saved data
-        public PPRUpgradeManagerConfig UpgradeConfig; // From file. TODO: get from cloud
+        public PPRPlayerUpgradeData PlayerUpgradeData;
+        public PPRUpgradeManagerConfig UpgradeConfig;
 
-        // MockData
-        // Load From Save Data On Device (Future)
-        // Load Config From Load
         public PPRUpgradeManager()
         {
             PPRManager.Instance.ConfigManager.GetConfigAsync<PPRUpgradeManagerConfig>("upgrade_config", delegate (PPRUpgradeManagerConfig config)
@@ -21,15 +18,18 @@ namespace PPR.Game
                 UpgradeConfig = config;
             });
 
-            PlayerUpgradeInventoryData = new PPRPlayerUpgradeInventoryData
+            PlayerUpgradeData = new PPRPlayerUpgradeData();
+
+            PlayerUpgradeData.Upgradeables = new List<PPRUpgradeableData>();
+
+            foreach (UpgradeableTypeIDs id in Enum.GetValues(typeof(UpgradeableTypeIDs)))
             {
-                Upgradeables = new List<PPRUpgradeableData>(){new PPRUpgradeableData
-                    {
-                        UpgradeableTypeID = UpgradeableTypeIDs.RatPowerUpgrade,
-                        CurrentLevel = 0
-                    }
-                }
-            };
+                PlayerUpgradeData.Upgradeables.Add(new PPRUpgradeableData
+                {
+                    UpgradeableTypeID = id,
+                    CurrentLevel = 0
+                });
+            }
         }
 
         public void UpgradeItemByID(UpgradeableTypeIDs typeID)
@@ -38,21 +38,22 @@ namespace PPR.Game
 
             if (upgradeable != null)
             {
-                // TODO: Config + Reduce score
                 var upgradeableConfig = GetPprUpgradeableConfigByID(typeID);
                 PPRUpgradeableLevelData levelData = upgradeableConfig.UpgradeableLevelData[upgradeable.CurrentLevel + 1]; // Get next level of item
-                int amountToReduce = levelData.CurrencyCost;
-                CurrencyTags currencyType = levelData.CurrencyTag;
 
-                if (PPRGameLogic.Instance.CurrencyManager.TryUseCurrency(currencyType, amountToReduce))
+                Dictionary<CurrencyTags, int> costs = levelData.CurrencyCost;
+
+                if (PPRGameLogic.Instance.CurrencyManager.TryUseCurrency(costs, true))
                 {
                     upgradeable.CurrentLevel++;
                     PPRManager.Instance.EventManager.InvokeEvent(PPREvents.item_upgraded, typeID);
+                    Debug.Log($"Upgraded \"{typeID}\" to level {upgradeable.CurrentLevel}!");
                 }
                 else
                 {
-                    Debug.LogError($"UpgradeItemByID: Not enough currency of type \"{currencyType}\" to upgrade item of type \"{typeID}\".");
+                    Debug.LogError($"UpgradeItemByID: Not enough currency to upgrade item of type \"{typeID}\".");
                 }
+
             }
         }
         
@@ -62,17 +63,17 @@ namespace PPR.Game
             return upgradeableConfig;
         }
 
-        public int GetPowerByIDAndLevel(UpgradeableTypeIDs typeID, int level)
+        public float GetPowerByIDAndLevel(UpgradeableTypeIDs typeID, int level)
         {
             var upgradeableConfig = GetPprUpgradeableConfigByID(typeID);
-            var power = upgradeableConfig.UpgradeableLevelData[level].Power;
+            var power = upgradeableConfig.UpgradeableLevelData[level].Value;
 
             return power;
         }
 
         public PPRUpgradeableData GetUpgradeableByID(UpgradeableTypeIDs typeID)
         {
-            var upgradeableData = PlayerUpgradeInventoryData.Upgradeables.FirstOrDefault(upgradeable => upgradeable.UpgradeableTypeID == typeID);
+            var upgradeableData = PlayerUpgradeData.Upgradeables.FirstOrDefault(upgradeable => upgradeable.UpgradeableTypeID == typeID);
             return upgradeableData;
         }
     }
@@ -90,10 +91,9 @@ namespace PPR.Game
     public class PPRUpgradeableLevelData
     {
         public int Level;
-        public int CurrencyCost;
-        public CurrencyTags CurrencyTag;
+        public Dictionary<CurrencyTags, int> CurrencyCost = new();
         public string ArtItem;
-        public int Power;
+        public float Value;
     }
 
     // Per item config
@@ -113,14 +113,17 @@ namespace PPR.Game
 
     // All player saved data
     [Serializable]
-    public class PPRPlayerUpgradeInventoryData : IPPRSaveData
+    public class PPRPlayerUpgradeData : IPPRSaveData
     {
         public List<PPRUpgradeableData> Upgradeables = new();
     }
 
     [Serializable]
     public enum UpgradeableTypeIDs
-    { 
-        RatPowerUpgrade = 1,
+    {
+        MovementSpeed = 1,
+        GatheringSpeed = 2,
+        GatheringRange = 3,
+        RadarRange = 4,
     }
 }

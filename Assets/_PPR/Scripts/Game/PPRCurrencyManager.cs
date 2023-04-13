@@ -63,7 +63,31 @@ namespace PPR.Game
             SetCurrencyByTag(tag, changeAmount);
         }
 
-        public bool TryUseCurrency(CurrencyTags tag, int amountToReduce)
+        public bool TryUseCurrency(Dictionary<CurrencyTags, int> costs, bool commit = false)
+        {
+            bool hasEnough = true;
+
+            foreach (var cost in costs)
+            {
+                if (!TryUseCurrency(cost.Key, cost.Value))
+                {
+                    hasEnough = false;
+                    break;
+                }
+            }
+
+            if (hasEnough && commit)
+            {
+                foreach (var cost in costs)
+                {
+                    ChangeCurrencyByTagByAmount(cost.Key, -cost.Value);
+                }
+            }
+
+            return hasEnough;
+        }
+
+        public bool TryUseCurrency(CurrencyTags tag, int amountToReduce, bool commit = false)
         {
             int currency = 0;
             bool hasType = TryGetCurrencyByTag(tag, ref currency);
@@ -74,7 +98,7 @@ namespace PPR.Game
                 hasEnough = amountToReduce <= currency;
             }
 
-            if (hasEnough)
+            if (hasEnough && commit)
             {
                 ChangeCurrencyByTagByAmount(tag, -amountToReduce);
             }

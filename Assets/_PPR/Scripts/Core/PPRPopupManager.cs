@@ -94,9 +94,17 @@ namespace PPR.Core
             PopupType = PopupTypes.WelcomePopup,
         };
 
+        public static PPRPopupData UpgradeStore = new()
+        {
+            Priority = 0,
+            PopupType = PopupTypes.UpgradePopup,
+        };
+
         public static void Init(PPRPopupMessagesConfig config)
         {
             WelcomeMessage.GenericData = config.WelcomeMessages.GetRandomFromArray();
+            UpgradeStore.GenericData = Resources.Load("Upgrade Store Popup Scroll View");
+            //UpgradeStore
         }
     }
 

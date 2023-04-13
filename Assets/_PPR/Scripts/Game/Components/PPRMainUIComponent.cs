@@ -56,7 +56,10 @@ namespace PPR.Game
 
         public void OnUpgradePressed()
         {
-            GameLogic.UpgradeManager.UpgradeItemByID(UpgradeableTypeIDs.RadarRange);
+            if (!PPRUpgradeStorePopupComponent.IsUpgradeStoreOpen)
+            {
+                Manager.PopupManager.AddPopupToQueue(PPRPopupData.UpgradeStore);
+            }
         }
     }
 }

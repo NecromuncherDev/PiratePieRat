@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace PPR.Game
 {
-	public class PPRCompassComponent : PPRMonoBehaviour
+    public class PPRCompassComponent : PPRMonoBehaviour
 	{
         [SerializeField] private GameObject markerPrefab;
         [SerializeField] private float compassSize;
@@ -80,5 +80,4 @@ namespace PPR.Game
     {
         Unknown = 0,
     }
-
 }

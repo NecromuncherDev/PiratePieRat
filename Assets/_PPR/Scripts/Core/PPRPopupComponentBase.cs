@@ -10,10 +10,6 @@ namespace PPR.Core
 
         public virtual void Init(PPRPopupData data)
         {
-            //var rect = GetComponent<RectTransform>();
-            //rect.offsetMax = Vector2.zero;
-            //rect.offsetMin = Vector2.zero;
-
             popupData = data;
             OnOpenPopup();
         }

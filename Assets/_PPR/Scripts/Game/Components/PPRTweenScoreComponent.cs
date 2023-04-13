@@ -46,10 +46,9 @@ namespace PPR.Game
 
         public override void OnReturnedToPool()
         {
-            var tempColor = currencyTMP.color;
-            tempColor.a = 1;
-            currencyTMP.color = tempColor;
-            currencyRenderer.color = tempColor;
+            currencyTMP.color.ResetAlpha();
+            currencyRenderer.color.ResetAlpha();
+
             base.OnReturnedToPool();
         }
     }

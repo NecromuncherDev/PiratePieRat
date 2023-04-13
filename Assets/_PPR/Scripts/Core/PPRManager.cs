@@ -73,17 +73,17 @@ namespace PPR.Core
                 AnalyticsManager = new PPRAnalyticsManager();
                 PPRDebug.Log($"After AnalyticsManager");
 
-                PopupManager = new PPRPopupManager();
-                PPRDebug.Log($"After PopupManager");
-
                 FactoryManager = new PPRFactory();
                 PPRDebug.Log($"After FactoryManager");
 
-                PoolManager = new PPRPoolManager();
-                PPRDebug.Log($"After PoolManager");
-
                 SaveManager = new PPRSaveManager();
                 PPRDebug.Log($"After SaveManager");
+
+                PopupManager = new PPRPopupManager();
+                PPRDebug.Log($"After PopupManager");
+
+                PoolManager = new PPRPoolManager();
+                PPRDebug.Log($"After PoolManager");
 
                 TimerManager = new PPRTimeManager();
                 PPRDebug.Log($"After TimeManager");

@@ -1,13 +1,38 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace PPR.Core
 {
     public class PPRPopupManager
     {
         public List<PPRPopupData> PopupsData = new();
+        public Canvas PopupCanvas;
+
+        public PPRPopupManager()
+        {
+            CreateCanvas();
+
+            PPRManager.Instance.ConfigManager.GetConfigAsync<PPRPopupMessagesConfig>("popup_messages_config", OnPopupMessagesLoaded);
+        }
+
+        private void OnPopupMessagesLoaded(PPRPopupMessagesConfig popupMessagesConfig)
+        {
+            PPRPopupData.Init(popupMessagesConfig);
+        }
+
+        private void CreateCanvas()
+        {
+            PPRManager.Instance.FactoryManager.CreateAsync<Canvas>("Popup Canvas", Vector3.zero, (Canvas canvas) =>
+            {
+                PopupCanvas = canvas;
+                Object.DontDestroyOnLoad(PopupCanvas);
+            });
+        }
+
         public void AddPopupToQueue(PPRPopupData popupData)
         {
             PopupsData.Add(popupData);
@@ -37,11 +62,12 @@ namespace PPR.Core
 
             // Instantiate
             PPRManager.Instance.FactoryManager.CreateAsync<PPRPopupComponentBase>(popupData.PopupType.ToString(), 
-                                                                              Vector3.zero, 
-                                                                              (PPRPopupComponentBase popupComponent) =>
-                                                                              {
-                                                                                  popupComponent.Init(popupData);
-                                                                              });
+                                                                                  Vector3.zero, 
+                                                                                  (PPRPopupComponentBase popupComponent) =>
+                                                                                  {
+                                                                                      popupComponent.transform.SetParent(PopupCanvas.transform, false);
+                                                                                      popupComponent.Init(popupData);
+                                                                                  });
         }
 
         public void OnClosePopup()
@@ -52,7 +78,7 @@ namespace PPR.Core
 
     public class PPRPopupData
     {
-        public Canvas Canvas;
+        // public Canvas Canvas;
 
         public int Priority;
         public PopupTypes PopupType;
@@ -61,6 +87,28 @@ namespace PPR.Core
         public Action OnPopupClose;
 
         public object GenericData;
+
+        public static PPRPopupData WelcomeMessage = new()
+        {
+            Priority = 0,
+            PopupType = PopupTypes.WelcomePopup,
+        };
+
+        public static void Init(PPRPopupMessagesConfig config)
+        {
+            WelcomeMessage.GenericData = config.WelcomeMessages.GetRandomFromArray();
+        }
+    }
+
+
+    [Serializable]
+    public class PPRPopupMessagesConfig
+    {
+        [JsonProperty("welcome_messages")]
+        public string[] WelcomeMessages;
+
+        [JsonProperty("welcome_back_messages")]
+        public string[] WelcomeBackMessages;
     }
 
     public enum PopupTypes

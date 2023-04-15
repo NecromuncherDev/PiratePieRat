@@ -15,7 +15,8 @@ namespace PPR.Game
                 Manager.FactoryManager.CreateAsync(storeItemPrefab, Vector3.zero, (PPRUpgradeStoreItemComponent storeItem) => 
                 {
                     storeItem.transform.SetParent(storeParent, false);
-                    storeItem.Init(id);
+                    var costs = GameLogic.UpgradeManager.GetUpgradeCostsByID(id);
+                    storeItem.Init(id, costs);
                 });
             }
         }

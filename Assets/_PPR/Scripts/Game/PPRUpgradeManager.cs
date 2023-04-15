@@ -32,31 +32,40 @@ namespace PPR.Game
             }
         }
 
-        public void UpgradeItemByID(UpgradeableTypeIDs typeID)
+        public bool UpgradeItemByID(UpgradeableTypeIDs typeID)
         {
             var upgradeable = GetUpgradeableByID(typeID);
+            
+            if (upgradeable == null)
+                return false;
+            
+            Dictionary<CurrencyTags, int> costs = GetUpgradeCostsByID(typeID);
 
-            if (upgradeable != null)
+            if (PPRGameLogic.Instance.CurrencyManager.TryUseCurrency(costs, true))
             {
-                var upgradeableConfig = GetPprUpgradeableConfigByID(typeID);
-                PPRUpgradeableLevelData levelData = upgradeableConfig.UpgradeableLevelData[upgradeable.CurrentLevel + 1]; // Get next level of item
-
-                Dictionary<CurrencyTags, int> costs = levelData.CurrencyCost;
-
-                if (PPRGameLogic.Instance.CurrencyManager.TryUseCurrency(costs, true))
-                {
-                    upgradeable.CurrentLevel++;
-                    PPRManager.Instance.EventManager.InvokeEvent(PPREvents.item_upgraded, typeID);
-                    Debug.Log($"Upgraded \"{typeID}\" to level {upgradeable.CurrentLevel}!");
-                }
-                else
-                {
-                    Debug.LogError($"UpgradeItemByID: Not enough currency to upgrade item of type \"{typeID}\".");
-                }
-
+                upgradeable.CurrentLevel++;
+                PPRManager.Instance.EventManager.InvokeEvent(PPREvents.item_upgraded, typeID);
+                Debug.Log($"Upgraded \"{typeID}\" to level {upgradeable.CurrentLevel}!");
+                return true;
+            }
+            else
+            {
+                Debug.LogError($"UpgradeItemByID: Not enough currency to upgrade item of type \"{typeID}\".");
+                return false;
             }
         }
-        
+
+        public Dictionary<CurrencyTags, int> GetUpgradeCostsByID(UpgradeableTypeIDs typeID)
+        {
+            var upgradeable = GetUpgradeableByID(typeID);
+            var upgradeableConfig = GetPprUpgradeableConfigByID(typeID);
+
+            PPRUpgradeableLevelData levelData = upgradeableConfig.UpgradeableLevelData[upgradeable.CurrentLevel + 1]; // Get next level of item
+
+            Dictionary<CurrencyTags, int> costs = levelData.CurrencyCost;
+            return costs;
+        }
+
         public PPRUpgradeableConfig GetPprUpgradeableConfigByID(UpgradeableTypeIDs typeID)
         {
             PPRUpgradeableConfig upgradeableConfig = UpgradeConfig.UpgradeableConfigs.FirstOrDefault(upgradeable => upgradeable.UpgradeableTypeID == typeID);

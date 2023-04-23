@@ -2,7 +2,7 @@
 
 namespace PPR.Core
 {
-    public class PPRUpgradeStorePopupComponent : PPRTweenPopupComponent
+    public class PPRUpgradeShopPopupComponent : PPRTweenPopupComponent
     {
         [SerializeField] private Transform storeWindowParent;
         public static bool IsUpgradeStoreOpen { get; private set; } = false;
@@ -16,7 +16,6 @@ namespace PPR.Core
             {
                 obj.transform.SetParent(storeWindowParent, false);
             });
-
         }
 
         public override void ClosePopup()

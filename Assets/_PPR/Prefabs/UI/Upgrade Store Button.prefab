@@ -158,13 +158,7 @@ MonoBehaviour:
   title: {fileID: 5889871209675079503}
   costTilePrefab: {fileID: 1073312546426137455, guid: d137928bd933bbc4181465572e492124, type: 3}
   costParent: {fileID: 233881702669106503}
-  currencyImages:
-  - tag: 1
-    image: {fileID: 21300000, guid: a23382ada23b81b4d9611258d2982b96, type: 3}
-  - tag: 2
-    image: {fileID: 21300000, guid: 580906a3ae0a2854a972acc19016fbac, type: 3}
-  - tag: 3
-    image: {fileID: 21300000, guid: 57f751a906859504f9c1f6858b5fefb9, type: 3}
+  button: {fileID: 2104512819863050496}
 --- !u!114 &2104512819863050496
 MonoBehaviour:
   m_ObjectHideFlags: 0

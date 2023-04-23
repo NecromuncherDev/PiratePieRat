@@ -56,7 +56,7 @@ namespace PPR.Game
 
         public void OnUpgradePressed()
         {
-            if (!PPRUpgradeStorePopupComponent.IsUpgradeStoreOpen)
+            if (!PPRUpgradeShopPopupComponent.IsUpgradeStoreOpen)
             {
                 Manager.PopupManager.AddPopupToQueue(PPRPopupData.UpgradeStore);
             }

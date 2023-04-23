@@ -41,6 +41,12 @@ namespace PPR.Game
             
             Dictionary<CurrencyTags, int> costs = GetUpgradeCostsByID(typeID);
 
+            if (costs == null)
+            {
+                Debug.LogError($"UpgradeItemByID: Cannot upgrade \"{typeID}\" beyond current level ({upgradeable.CurrentLevel}).");
+                return false;
+            }
+
             if (PPRGameLogic.Instance.CurrencyManager.TryUseCurrency(costs, true))
             {
                 upgradeable.CurrentLevel++;
@@ -59,11 +65,19 @@ namespace PPR.Game
         {
             var upgradeable = GetUpgradeableByID(typeID);
             var upgradeableConfig = GetPprUpgradeableConfigByID(typeID);
+            int upgradeableMaxLevel = upgradeableConfig.UpgradeableLevelData[upgradeableConfig.UpgradeableLevelData.Count - 1].Level;
 
-            PPRUpgradeableLevelData levelData = upgradeableConfig.UpgradeableLevelData[upgradeable.CurrentLevel + 1]; // Get next level of item
-
-            Dictionary<CurrencyTags, int> costs = levelData.CurrencyCost;
-            return costs;
+            if (upgradeable.CurrentLevel < upgradeableMaxLevel)
+            {
+                PPRUpgradeableLevelData levelData = upgradeableConfig.UpgradeableLevelData[upgradeable.CurrentLevel + 1]; // Get next level of item
+                Dictionary<CurrencyTags, int> costs = levelData.CurrencyCost;
+                return costs;
+            }
+            else
+            {
+                Debug.LogError($"GetUpgradeCostsByID: Cannot get \"{typeID}\" costs beyond current level ({upgradeable.CurrentLevel}).");
+                return null;
+            }
         }
 
         public PPRUpgradeableConfig GetPprUpgradeableConfigByID(UpgradeableTypeIDs typeID)

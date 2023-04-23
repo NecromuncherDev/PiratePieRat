@@ -132,7 +132,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 43950901}
-  - component: {fileID: 43950903}
   - component: {fileID: 43950904}
   - component: {fileID: 43950906}
   - component: {fileID: 43950905}
@@ -158,23 +157,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &43950903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 43950899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c5ec0ec2c5ddd841a59d3e380192581, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pools:
-  - {fileID: 11400000, guid: e8f7053ead1c89e4ebc95ea9ed001f59, type: 2}
-  - {fileID: 11400000, guid: b72e18723e412154b86530236db67869, type: 2}
-  - {fileID: 11400000, guid: 536a6275f93621d4fb9d382fd82b6a52, type: 2}
-  - {fileID: 11400000, guid: 97a8ffd9bba62bc419bf69eeb6cfeb5e, type: 2}
 --- !u!114 &43950904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -705,7 +687,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingMetal: 0
-  startingPlastic: 0
+  startingPlastic: 1000
   startingWood: 0
 --- !u!114 &585852814
 MonoBehaviour:

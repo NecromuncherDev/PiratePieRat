@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 namespace PPR.Core
 {
-    public class PPRLoader : PPRMonoBehaviour
+    public class PPRLoader : PPRLoaderBase
     {
         [SerializeField] private int gameSceneID;
         [SerializeField] private PPRLoaderBase gameLogicLoader;

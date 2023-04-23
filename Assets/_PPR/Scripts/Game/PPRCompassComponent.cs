@@ -9,7 +9,7 @@ namespace PPR.Game
         [SerializeField] private GameObject markerPrefab;
         [SerializeField] private float compassSize;
 
-        private Dictionary<Vector3, (Transform, CompassMarkers)> compass = new();
+        private Dictionary<Vector3, (Transform, CompassMarkerTypes)> compass = new();
 
         private PPRTweenInOutComponent createdObject;
         Vector2 dir, dirFactored;
@@ -24,7 +24,7 @@ namespace PPR.Game
         private void AddToCompass(object markerPosition)
         {
             var marker = (GameObject)markerPosition;
-            compass.Add(marker.transform.position, (null, CompassMarkers.Unknown));
+            compass.Add(marker.transform.position, (null, CompassMarkerTypes.Unknown));
             CreateCompassMarker(marker.transform.position);
         }
 
@@ -55,7 +55,7 @@ namespace PPR.Game
             createdObject.Init();
         }
 
-        private Vector3 RepositionMarkerOnCompass(Vector3 position, CompassMarkers marker = CompassMarkers.Unknown)
+        private Vector3 RepositionMarkerOnCompass(Vector3 position, CompassMarkerTypes marker = CompassMarkerTypes.Unknown)
         {
             dir = (position - transform.position);
             dirFactored = dir.normalized * compassSize;
@@ -76,8 +76,9 @@ namespace PPR.Game
         }
     }
 
-    public enum CompassMarkers
+    public enum CompassMarkerTypes
     {
         Unknown = 0,
+        ResourceMetal = 1,
     }
 }

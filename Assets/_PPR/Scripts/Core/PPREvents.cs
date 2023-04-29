@@ -26,8 +26,7 @@
         combat_player_win = 25,
         combat_player_lose = 26,
 
-        // Pickups and Upgrades 30-39
-        item_upgraded = 30,
+        // Pickups 30-39
         pickup_taken_from_pool = 31,
         pickup_returned_to_pool = 32,
         pickup_collected = 33,
@@ -43,5 +42,12 @@
 
         // Purchases 50-59
         purchase_complete = 50,
+
+        // Upgrades 60-99
+        item_upgraded = 60,
+        upgraded_movement_speed = 61,
+        upgraded_gathering_speed = 62,
+        upgraded_gathering_range = 63,
+        upgraded_radar_range = 64,
     }
 }

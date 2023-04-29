@@ -446,20 +446,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4415432372679527280, guid: 72196e7b45cd6c4409b988d3cc06613e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.92387956
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4415432372679527280, guid: 72196e7b45cd6c4409b988d3cc06613e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.38268343
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4415432372679527280, guid: 72196e7b45cd6c4409b988d3cc06613e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4415432372679527287, guid: 72196e7b45cd6c4409b988d3cc06613e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 32ddcab7a5d64bf40b02231eb6a62954, type: 3}
+      objectReference: {fileID: 21300000, guid: 57f751a906859504f9c1f6858b5fefb9, type: 3}
     - target: {fileID: 8497236793019227983, guid: 72196e7b45cd6c4409b988d3cc06613e, type: 3}
       propertyPath: currencyUpdateEnvent
       value: 14
@@ -632,7 +632,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 585852812}
-  - component: {fileID: 585852811}
   - component: {fileID: 585852813}
   - component: {fileID: 585852814}
   m_Layer: 0
@@ -642,23 +641,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &585852811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 585852810}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90c10faf2fac1ce4294cfcafbcdeb538, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyMappings:
-  - eventToTriggerOnKey: 21
-    triggerKey: 101
-  - eventToTriggerOnKey: 22
-    triggerKey: 113
 --- !u!4 &585852812
 Transform:
   m_ObjectHideFlags: 0
@@ -686,8 +668,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd4877787771a284f986cf8dfc90abbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingMetal: 0
-  startingPlastic: 0
+  startingMetal: 1000
+  startingPlastic: 1000
   startingWood: 1000
 --- !u!114 &585852814
 MonoBehaviour:
@@ -1056,21 +1038,41 @@ PrefabInstance:
       value: Plastic Currency Panel
       objectReference: {fileID: 0}
     - target: {fileID: 4415432372679527280, guid: 72196e7b45cd6c4409b988d3cc06613e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415432372679527280, guid: 72196e7b45cd6c4409b988d3cc06613e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415432372679527280, guid: 72196e7b45cd6c4409b988d3cc06613e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415432372679527280, guid: 72196e7b45cd6c4409b988d3cc06613e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.92387956
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4415432372679527280, guid: 72196e7b45cd6c4409b988d3cc06613e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.38268343
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4415432372679527280, guid: 72196e7b45cd6c4409b988d3cc06613e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 45
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415432372679527280, guid: 72196e7b45cd6c4409b988d3cc06613e, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415432372679527287, guid: 72196e7b45cd6c4409b988d3cc06613e, type: 3}
+      propertyPath: m_Type
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4415432372679527287, guid: 72196e7b45cd6c4409b988d3cc06613e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8c4e605725d6d314ca96e638e3c03785, type: 3}
+      objectReference: {fileID: 21300000, guid: 580906a3ae0a2854a972acc19016fbac, type: 3}
     - target: {fileID: 8497236793019227983, guid: 72196e7b45cd6c4409b988d3cc06613e, type: 3}
       propertyPath: currencyUpdateEnvent
       value: 13
@@ -1630,20 +1632,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4415432372679527280, guid: 72196e7b45cd6c4409b988d3cc06613e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.92387956
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4415432372679527280, guid: 72196e7b45cd6c4409b988d3cc06613e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.38268343
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4415432372679527280, guid: 72196e7b45cd6c4409b988d3cc06613e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4415432372679527287, guid: 72196e7b45cd6c4409b988d3cc06613e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 3f0c617eb0bbdc9429ac06151fb409fb, type: 3}
+      objectReference: {fileID: 21300000, guid: a23382ada23b81b4d9611258d2982b96, type: 3}
     - target: {fileID: 8497236793019227983, guid: 72196e7b45cd6c4409b988d3cc06613e, type: 3}
       propertyPath: currencyUpdateEnvent
       value: 12

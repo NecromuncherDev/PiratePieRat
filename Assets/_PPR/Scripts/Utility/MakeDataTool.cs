@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
 
@@ -84,3 +85,4 @@ namespace PPR.Util
         }
     }
 }
+#endif

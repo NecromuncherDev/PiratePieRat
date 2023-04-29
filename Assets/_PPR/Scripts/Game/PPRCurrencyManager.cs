@@ -51,7 +51,7 @@ namespace PPR.Game
             PlayerCurrencyData.CurrencyByTag[tag] = amount;
             PPRManager.Instance.EventManager.InvokeEvent(PPREvents.currency_set, (tag, amount));
 
-            PPRManager.Instance.SaveManager.Save(PlayerCurrencyData); // Saves AT LEAST once a second due to the nature of the game
+            PPRManager.Instance.SaveManager.Save(PlayerCurrencyData); // Saves to file every time the player gets currency
         }
 
         public void ChangeCurrencyByTagByAmount(CurrencyTags tag, int amount)

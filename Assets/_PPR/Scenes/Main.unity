@@ -687,8 +687,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingMetal: 0
-  startingPlastic: 1000
-  startingWood: 0
+  startingPlastic: 0
+  startingWood: 1000
 --- !u!114 &585852814
 MonoBehaviour:
   m_ObjectHideFlags: 0

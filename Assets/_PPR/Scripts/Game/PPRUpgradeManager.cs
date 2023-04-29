@@ -18,17 +18,21 @@ namespace PPR.Game
                 UpgradeConfig = config;
             });
 
-            PlayerUpgradeData = new PPRPlayerUpgradeData();
-
-            PlayerUpgradeData.Upgradeables = new List<PPRUpgradeableData>();
-
-            foreach (UpgradeableTypeIDs id in Enum.GetValues(typeof(UpgradeableTypeIDs)))
+            PPRManager.Instance.SaveManager.Load<PPRPlayerUpgradeData>(delegate (PPRPlayerUpgradeData data)
             {
-                PlayerUpgradeData.Upgradeables.Add(new PPRUpgradeableData
+                PlayerUpgradeData = data ?? new PPRPlayerUpgradeData();
+            });
+
+            if (PlayerUpgradeData.Upgradeables.Count == 0)
+            {
+                foreach (UpgradeableTypeIDs id in Enum.GetValues(typeof(UpgradeableTypeIDs))) // Change to be configurable in firebase
                 {
-                    UpgradeableTypeID = id,
-                    CurrentLevel = 0
-                });
+                    PlayerUpgradeData.Upgradeables.Add(new PPRUpgradeableData
+                    {
+                        UpgradeableTypeID = id,
+                        CurrentLevel = 0
+                    });
+                }
             }
         }
 
@@ -52,6 +56,9 @@ namespace PPR.Game
                 upgradeable.CurrentLevel++;
                 PPRManager.Instance.EventManager.InvokeEvent(PPREvents.item_upgraded, typeID);
                 Debug.Log($"Upgraded \"{typeID}\" to level {upgradeable.CurrentLevel}!");
+
+                PPRManager.Instance.SaveManager.Save(PlayerUpgradeData);
+
                 return true;
             }
             else
@@ -138,7 +145,7 @@ namespace PPR.Game
     [Serializable]
     public class PPRPlayerUpgradeData : IPPRSaveData
     {
-        public List<PPRUpgradeableData> Upgradeables = new();
+        public List<PPRUpgradeableData> Upgradeables = new(); // Make sure this fits the data model
     }
 
     [Serializable]

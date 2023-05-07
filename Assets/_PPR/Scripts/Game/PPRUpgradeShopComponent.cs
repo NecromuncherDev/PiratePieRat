@@ -14,9 +14,16 @@ namespace PPR.Game
             {
                 Manager.FactoryManager.CreateAsync(storeItemPrefab, Vector3.zero, (PPRUpgradeShopItemComponent storeItem) => 
                 {
-                    storeItem.transform.SetParent(storeParent, false);
                     var costs = GameLogic.UpgradeManager.GetUpgradeCostsByID(id);
-                    storeItem.Init(id, costs);
+                    if (costs != null)
+                    {
+                        storeItem.transform.SetParent(storeParent, false);
+                        storeItem.Init(id, costs);
+                    }
+                    else
+                    {
+                        Debug.Log($"Not generating store tile for \"{id}\" - at max level or does not exist.");
+                    }
                 });
             }
         }

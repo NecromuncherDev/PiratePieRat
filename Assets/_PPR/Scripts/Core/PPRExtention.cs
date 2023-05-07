@@ -51,11 +51,12 @@ namespace PPR.Core
             return transform.DORotate(new Vector3(0, 0, angle), duration, RotateMode.Fast);
         }
 
-        public static void ResetAlpha(this Color color, float newAlpha = 1)
+        public static Color ResetAlpha(this Color color, float newAlpha = 1)
         {
             var tempColor = color;
             tempColor.a = newAlpha;
             color = tempColor;
+            return color;
         }
     }
 }

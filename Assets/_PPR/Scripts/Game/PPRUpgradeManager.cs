@@ -56,7 +56,7 @@ namespace PPR.Game
                 upgradeable.CurrentLevel++;
                 PPRManager.Instance.EventManager.InvokeEvent(PPREvents.item_upgraded, typeID);
                 Debug.Log($"Upgraded \"{typeID}\" to level {upgradeable.CurrentLevel}!");
-
+                NotifyUpgraded(typeID);
                 PPRManager.Instance.SaveManager.Save(PlayerUpgradeData);
 
                 return true;
@@ -93,18 +93,52 @@ namespace PPR.Game
             return upgradeableConfig;
         }
 
-        public float GetPowerByIDAndLevel(UpgradeableTypeIDs typeID, int level)
+        public float GetCurrentValueByID(UpgradeableTypeIDs typeID)
+        {
+            int level = GetUpgradeableByID(typeID).CurrentLevel;
+            return GetValueByIDAndLevel(typeID, level);
+        }
+
+        public float GetValueByIDAndLevel(UpgradeableTypeIDs typeID, int level)
         {
             var upgradeableConfig = GetPprUpgradeableConfigByID(typeID);
-            var power = upgradeableConfig.UpgradeableLevelData[level].Value;
+            var ugradeableValue = upgradeableConfig.UpgradeableLevelData[level].Value;
 
-            return power;
+            return ugradeableValue;
         }
 
         public PPRUpgradeableData GetUpgradeableByID(UpgradeableTypeIDs typeID)
         {
             var upgradeableData = PlayerUpgradeData.Upgradeables.FirstOrDefault(upgradeable => upgradeable.UpgradeableTypeID == typeID);
             return upgradeableData;
+        }
+
+        private void NotifyUpgraded(UpgradeableTypeIDs typeID)
+        {
+            PPREvents upgradeableEvent = PPREvents.empty_event;
+
+            switch (typeID)
+            {
+                case UpgradeableTypeIDs.MovementSpeed:
+                    upgradeableEvent = PPREvents.upgraded_movement_speed;
+                    break;
+                case UpgradeableTypeIDs.GatheringSpeed:
+                    upgradeableEvent = PPREvents.upgraded_gathering_speed;
+                    break;
+                case UpgradeableTypeIDs.GatheringRange:
+                    upgradeableEvent = PPREvents.upgraded_gathering_range;
+                    break;
+                case UpgradeableTypeIDs.RadarRange:
+                    upgradeableEvent = PPREvents.upgraded_radar_range;
+                    break;
+                default:
+                    break;
+            }
+
+            if (upgradeableEvent != PPREvents.empty_event)
+            {
+                PPRManager.Instance.EventManager.InvokeEvent(upgradeableEvent);
+            }
         }
     }
 

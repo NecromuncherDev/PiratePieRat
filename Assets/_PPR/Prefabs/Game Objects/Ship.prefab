@@ -142,7 +142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f3d87c3e3823934d8af9023fae26ceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
 --- !u!1 &6251605490940989163
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,7 +152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4741615910315534347}
   - component: {fileID: 3638800473776413284}
-  - component: {fileID: 6589467559559915852}
+  - component: {fileID: 5067109915457797879}
   - component: {fileID: 8766670564130550194}
   - component: {fileID: 4879493241390926821}
   - component: {fileID: 3529800043281281714}
@@ -233,8 +232,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &6589467559559915852
-CapsuleCollider2D:
+--- !u!58 &5067109915457797879
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -247,8 +246,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.2, y: 0.5}
-  m_Direction: 1
+  serializedVersion: 2
+  m_Radius: 0.54
 --- !u!114 &8766670564130550194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,6 +263,7 @@ MonoBehaviour:
   pickupLayer:
     serializedVersion: 2
     m_Bits: 64
+  gatheringCollider: {fileID: 5067109915457797879}
 --- !u!114 &4879493241390926821
 MonoBehaviour:
   m_ObjectHideFlags: 0

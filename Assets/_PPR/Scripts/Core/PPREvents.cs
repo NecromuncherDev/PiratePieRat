@@ -2,6 +2,9 @@
 {
     public enum PPREvents
     {
+        // Control
+        empty_event = -1,
+
         // Game and Time Progression 0-9
         game_start_event = 0,
         game_stop_event = 1,
